@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('imagenes', function (Blueprint $table) {
             $table->id();
-            $table->string('path', 255); // Ruta o nombre del archivo
-            $table->string('descripcion', 255)->nullable(); // Descripción opcional
+            $table->string('path', 255);
+            $table->string('descripcion', 255)->nullable();
             $table->timestamps();
         });
     }

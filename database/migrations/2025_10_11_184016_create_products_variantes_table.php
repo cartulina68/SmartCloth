@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
 
             // 🔗 Relaciones
-            $table->foreignId('product_id')->constrained('products')->onDelete('cascade');
-            $table->foreignId('color_id')->nullable()->constrained('colores')->onDelete('set null');
-            $table->foreignId('talla_id')->nullable()->constrained('tallas')->onDelete('set null');
-            $table->foreignId('imagen_id')->nullable()->constrained('imagenes')->onDelete('set null');
+            $table->foreignId('product_id')->constrained('products');
+            $table->foreignId('color_id')->nullable()->constrained('colores');
+            $table->foreignId('talla_id')->nullable()->constrained('tallas');
+            $table->foreignId('imagen_id')->nullable()->constrained('imagenes');
 
             // 📦 Datos del inventario
             $table->integer('stock')->default(0);
