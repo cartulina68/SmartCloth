@@ -36,8 +36,10 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->group(function () {
 
     // Endpoints API para Axios
     Route::get('api/categorias', [CategoriaController::class, 'index']); // listado
-    Route::post('api/categorias', [CategoriaController::class, 'store']); // crear
-    Route::delete('api/categorias/{categoria}', [CategoriaController::class, 'destroy']); // eliminar
+    Route::post('api/categorias', [CategoriaController::class, 'store'])->name('categorias.store'); // crear
+    Route::get('api/categorias/{categoria}', [CategoriaController::class, 'show'])->name('categorias.show'); // ver
+    Route::put('api/categorias/{categoria}', [CategoriaController::class, 'update'])->name('categorias.update'); // actualizar
+    Route::delete('api/categorias/{categoria}', [CategoriaController::class, 'destroy'])->name('categorias.destroy'); // eliminar
 
     // Otros CRUDs
     Route::resource('roles', RoleController::class);
