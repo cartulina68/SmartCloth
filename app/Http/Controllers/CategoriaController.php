@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Categorias;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class CategoriaController extends Controller
 {
     public function index()
     {
-        return response()->json(Categorias::all());
+        $categorias = Categorias::all();
+        return Inertia::render('categorias/index', ['categorias' => $categorias]);
     }
 
     public function store(Request $request)
@@ -20,7 +22,8 @@ class CategoriaController extends Controller
         ]);
 
         $categoria = Categorias::create($validated);
-        return response()->json($categoria, 201);
+
+        return redirect()->intended(route('categorias.index', absolute: false));
     }
 
     public function show(Categorias $categoria)

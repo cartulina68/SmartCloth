@@ -30,16 +30,16 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->group(function () {
     })->name('dashboard');
 
     // Página Inertia React
-    Route::get('categorias', function () {
-        return Inertia::render('Admin/Categoria/Index');
-    })->name('categorias.index');
+    // Route::get('categorias', function () {
+    //     return Inertia::render('categorias/index');
+    // })->name('categorias.index');
 
-    // Endpoints API para Axios
-    Route::get('api/categorias', [CategoriaController::class, 'index']); // listado
-    Route::post('api/categorias', [CategoriaController::class, 'store'])->name('categorias.store'); // crear
-    Route::get('api/categorias/{categoria}', [CategoriaController::class, 'show'])->name('categorias.show'); // ver
-    Route::put('api/categorias/{categoria}', [CategoriaController::class, 'update'])->name('categorias.update'); // actualizar
-    Route::delete('api/categorias/{categoria}', [CategoriaController::class, 'destroy'])->name('categorias.destroy'); // eliminar
+    // Categorias CRUD
+    Route::get('categorias', [CategoriaController::class, 'index'])->name('categorias.index');
+    Route::post('categorias', [CategoriaController::class, 'store'])->name('categorias.store');
+    Route::get('categorias/{categoria}', [CategoriaController::class, 'show'])->name('categorias.show');
+    Route::put('categorias/{categoria}', [CategoriaController::class, 'update'])->name('categorias.update');
+    Route::delete('categorias/{categoria}', [CategoriaController::class, 'destroy'])->name('categorias.destroy');
 
     // Otros CRUDs
     Route::resource('roles', RoleController::class);
