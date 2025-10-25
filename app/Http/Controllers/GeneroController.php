@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Genero;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class GeneroController extends Controller
 {
     public function index()
     {
-        return response()->json(Genero::all());
+        $generos = Genero::all();
+        return Inertia::render('generos/index', ['generos' => $generos]);
     }
 
     public function store(Request $request)
@@ -18,8 +20,9 @@ class GeneroController extends Controller
             'genero' => 'required|string|max:50',
         ]);
 
-        $genero = Genero::create($validated);
-        return response()->json($genero, 201);
+        Genero::create($validated);
+
+        return redirect()->intended(route('generos.index', absolute: false));
     }
 
     public function show(Genero $genero)

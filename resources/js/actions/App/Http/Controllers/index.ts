@@ -1,8 +1,8 @@
 import Auth from './Auth'
 import CategoriaController from './CategoriaController'
+import ColorController from './ColorController'
 import RoleController from './RoleController'
 import GeneroController from './GeneroController'
-import ColorController from './ColorController'
 import TallaController from './TallaController'
 import ImagenController from './ImagenController'
 import UserController from './UserController'
@@ -14,9 +14,9 @@ import Settings from './Settings'
 const Controllers = {
     Auth: Object.assign(Auth, Auth),
 CategoriaController: Object.assign(CategoriaController, CategoriaController),
+ColorController: Object.assign(ColorController, ColorController),
 RoleController: Object.assign(RoleController, RoleController),
 GeneroController: Object.assign(GeneroController, GeneroController),
-ColorController: Object.assign(ColorController, ColorController),
 TallaController: Object.assign(TallaController, TallaController),
 ImagenController: Object.assign(ImagenController, ImagenController),
 UserController: Object.assign(UserController, UserController),

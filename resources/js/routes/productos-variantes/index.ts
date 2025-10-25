@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../wayfinder'
 /**
 * @see \App\Http\Controllers\ProductoVarianteController::index
- * @see app/Http/Controllers/ProductoVarianteController.php:10
+ * @see app/Http/Controllers/ProductoVarianteController.php:15
  * @route '/admin/productos-variantes'
  */
 export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ index.definition = {
 
 /**
 * @see \App\Http\Controllers\ProductoVarianteController::index
- * @see app/Http/Controllers/ProductoVarianteController.php:10
+ * @see app/Http/Controllers/ProductoVarianteController.php:15
  * @route '/admin/productos-variantes'
  */
 index.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ index.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\ProductoVarianteController::index
- * @see app/Http/Controllers/ProductoVarianteController.php:10
+ * @see app/Http/Controllers/ProductoVarianteController.php:15
  * @route '/admin/productos-variantes'
  */
 index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -34,7 +34,7 @@ index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Http\Controllers\ProductoVarianteController::index
- * @see app/Http/Controllers/ProductoVarianteController.php:10
+ * @see app/Http/Controllers/ProductoVarianteController.php:15
  * @route '/admin/productos-variantes'
  */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -44,7 +44,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Http\Controllers\ProductoVarianteController::index
- * @see app/Http/Controllers/ProductoVarianteController.php:10
+ * @see app/Http/Controllers/ProductoVarianteController.php:15
  * @route '/admin/productos-variantes'
  */
     const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -54,7 +54,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Http\Controllers\ProductoVarianteController::index
- * @see app/Http/Controllers/ProductoVarianteController.php:10
+ * @see app/Http/Controllers/ProductoVarianteController.php:15
  * @route '/admin/productos-variantes'
  */
         indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -63,7 +63,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Http\Controllers\ProductoVarianteController::index
- * @see app/Http/Controllers/ProductoVarianteController.php:10
+ * @see app/Http/Controllers/ProductoVarianteController.php:15
  * @route '/admin/productos-variantes'
  */
         indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -157,7 +157,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     create.form = createForm
 /**
 * @see \App\Http\Controllers\ProductoVarianteController::store
- * @see app/Http/Controllers/ProductoVarianteController.php:15
+ * @see app/Http/Controllers/ProductoVarianteController.php:32
  * @route '/admin/productos-variantes'
  */
 export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -172,7 +172,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\ProductoVarianteController::store
- * @see app/Http/Controllers/ProductoVarianteController.php:15
+ * @see app/Http/Controllers/ProductoVarianteController.php:32
  * @route '/admin/productos-variantes'
  */
 store.url = (options?: RouteQueryOptions) => {
@@ -181,7 +181,7 @@ store.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\ProductoVarianteController::store
- * @see app/Http/Controllers/ProductoVarianteController.php:15
+ * @see app/Http/Controllers/ProductoVarianteController.php:32
  * @route '/admin/productos-variantes'
  */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -191,7 +191,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
     /**
 * @see \App\Http\Controllers\ProductoVarianteController::store
- * @see app/Http/Controllers/ProductoVarianteController.php:15
+ * @see app/Http/Controllers/ProductoVarianteController.php:32
  * @route '/admin/productos-variantes'
  */
     const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -201,7 +201,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
             /**
 * @see \App\Http\Controllers\ProductoVarianteController::store
- * @see app/Http/Controllers/ProductoVarianteController.php:15
+ * @see app/Http/Controllers/ProductoVarianteController.php:32
  * @route '/admin/productos-variantes'
  */
         storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -212,7 +212,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     store.form = storeForm
 /**
 * @see \App\Http\Controllers\ProductoVarianteController::show
- * @see app/Http/Controllers/ProductoVarianteController.php:30
+ * @see app/Http/Controllers/ProductoVarianteController.php:48
  * @route '/admin/productos-variantes/{productos_variante}'
  */
 export const show = (args: { productos_variante: string | number } | [productos_variante: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -227,7 +227,7 @@ show.definition = {
 
 /**
 * @see \App\Http\Controllers\ProductoVarianteController::show
- * @see app/Http/Controllers/ProductoVarianteController.php:30
+ * @see app/Http/Controllers/ProductoVarianteController.php:48
  * @route '/admin/productos-variantes/{productos_variante}'
  */
 show.url = (args: { productos_variante: string | number } | [productos_variante: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -255,7 +255,7 @@ show.url = (args: { productos_variante: string | number } | [productos_variante:
 
 /**
 * @see \App\Http\Controllers\ProductoVarianteController::show
- * @see app/Http/Controllers/ProductoVarianteController.php:30
+ * @see app/Http/Controllers/ProductoVarianteController.php:48
  * @route '/admin/productos-variantes/{productos_variante}'
  */
 show.get = (args: { productos_variante: string | number } | [productos_variante: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -264,7 +264,7 @@ show.get = (args: { productos_variante: string | number } | [productos_variante:
 })
 /**
 * @see \App\Http\Controllers\ProductoVarianteController::show
- * @see app/Http/Controllers/ProductoVarianteController.php:30
+ * @see app/Http/Controllers/ProductoVarianteController.php:48
  * @route '/admin/productos-variantes/{productos_variante}'
  */
 show.head = (args: { productos_variante: string | number } | [productos_variante: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -274,7 +274,7 @@ show.head = (args: { productos_variante: string | number } | [productos_variante
 
     /**
 * @see \App\Http\Controllers\ProductoVarianteController::show
- * @see app/Http/Controllers/ProductoVarianteController.php:30
+ * @see app/Http/Controllers/ProductoVarianteController.php:48
  * @route '/admin/productos-variantes/{productos_variante}'
  */
     const showForm = (args: { productos_variante: string | number } | [productos_variante: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -284,7 +284,7 @@ show.head = (args: { productos_variante: string | number } | [productos_variante
 
             /**
 * @see \App\Http\Controllers\ProductoVarianteController::show
- * @see app/Http/Controllers/ProductoVarianteController.php:30
+ * @see app/Http/Controllers/ProductoVarianteController.php:48
  * @route '/admin/productos-variantes/{productos_variante}'
  */
         showForm.get = (args: { productos_variante: string | number } | [productos_variante: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -293,7 +293,7 @@ show.head = (args: { productos_variante: string | number } | [productos_variante
         })
             /**
 * @see \App\Http\Controllers\ProductoVarianteController::show
- * @see app/Http/Controllers/ProductoVarianteController.php:30
+ * @see app/Http/Controllers/ProductoVarianteController.php:48
  * @route '/admin/productos-variantes/{productos_variante}'
  */
         showForm.head = (args: { productos_variante: string | number } | [productos_variante: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -406,7 +406,7 @@ edit.head = (args: { productos_variante: string | number } | [productos_variante
     edit.form = editForm
 /**
 * @see \App\Http\Controllers\ProductoVarianteController::update
- * @see app/Http/Controllers/ProductoVarianteController.php:35
+ * @see app/Http/Controllers/ProductoVarianteController.php:55
  * @route '/admin/productos-variantes/{productos_variante}'
  */
 export const update = (args: { productos_variante: string | number } | [productos_variante: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -421,7 +421,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\ProductoVarianteController::update
- * @see app/Http/Controllers/ProductoVarianteController.php:35
+ * @see app/Http/Controllers/ProductoVarianteController.php:55
  * @route '/admin/productos-variantes/{productos_variante}'
  */
 update.url = (args: { productos_variante: string | number } | [productos_variante: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -449,7 +449,7 @@ update.url = (args: { productos_variante: string | number } | [productos_variant
 
 /**
 * @see \App\Http\Controllers\ProductoVarianteController::update
- * @see app/Http/Controllers/ProductoVarianteController.php:35
+ * @see app/Http/Controllers/ProductoVarianteController.php:55
  * @route '/admin/productos-variantes/{productos_variante}'
  */
 update.put = (args: { productos_variante: string | number } | [productos_variante: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -458,7 +458,7 @@ update.put = (args: { productos_variante: string | number } | [productos_variant
 })
 /**
 * @see \App\Http\Controllers\ProductoVarianteController::update
- * @see app/Http/Controllers/ProductoVarianteController.php:35
+ * @see app/Http/Controllers/ProductoVarianteController.php:55
  * @route '/admin/productos-variantes/{productos_variante}'
  */
 update.patch = (args: { productos_variante: string | number } | [productos_variante: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -468,7 +468,7 @@ update.patch = (args: { productos_variante: string | number } | [productos_varia
 
     /**
 * @see \App\Http\Controllers\ProductoVarianteController::update
- * @see app/Http/Controllers/ProductoVarianteController.php:35
+ * @see app/Http/Controllers/ProductoVarianteController.php:55
  * @route '/admin/productos-variantes/{productos_variante}'
  */
     const updateForm = (args: { productos_variante: string | number } | [productos_variante: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -483,7 +483,7 @@ update.patch = (args: { productos_variante: string | number } | [productos_varia
 
             /**
 * @see \App\Http\Controllers\ProductoVarianteController::update
- * @see app/Http/Controllers/ProductoVarianteController.php:35
+ * @see app/Http/Controllers/ProductoVarianteController.php:55
  * @route '/admin/productos-variantes/{productos_variante}'
  */
         updateForm.put = (args: { productos_variante: string | number } | [productos_variante: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -497,7 +497,7 @@ update.patch = (args: { productos_variante: string | number } | [productos_varia
         })
             /**
 * @see \App\Http\Controllers\ProductoVarianteController::update
- * @see app/Http/Controllers/ProductoVarianteController.php:35
+ * @see app/Http/Controllers/ProductoVarianteController.php:55
  * @route '/admin/productos-variantes/{productos_variante}'
  */
         updateForm.patch = (args: { productos_variante: string | number } | [productos_variante: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -513,7 +513,7 @@ update.patch = (args: { productos_variante: string | number } | [productos_varia
     update.form = updateForm
 /**
 * @see \App\Http\Controllers\ProductoVarianteController::destroy
- * @see app/Http/Controllers/ProductoVarianteController.php:49
+ * @see app/Http/Controllers/ProductoVarianteController.php:70
  * @route '/admin/productos-variantes/{productos_variante}'
  */
 export const destroy = (args: { productos_variante: string | number } | [productos_variante: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -528,7 +528,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\ProductoVarianteController::destroy
- * @see app/Http/Controllers/ProductoVarianteController.php:49
+ * @see app/Http/Controllers/ProductoVarianteController.php:70
  * @route '/admin/productos-variantes/{productos_variante}'
  */
 destroy.url = (args: { productos_variante: string | number } | [productos_variante: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -556,7 +556,7 @@ destroy.url = (args: { productos_variante: string | number } | [productos_varian
 
 /**
 * @see \App\Http\Controllers\ProductoVarianteController::destroy
- * @see app/Http/Controllers/ProductoVarianteController.php:49
+ * @see app/Http/Controllers/ProductoVarianteController.php:70
  * @route '/admin/productos-variantes/{productos_variante}'
  */
 destroy.delete = (args: { productos_variante: string | number } | [productos_variante: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -566,7 +566,7 @@ destroy.delete = (args: { productos_variante: string | number } | [productos_var
 
     /**
 * @see \App\Http\Controllers\ProductoVarianteController::destroy
- * @see app/Http/Controllers/ProductoVarianteController.php:49
+ * @see app/Http/Controllers/ProductoVarianteController.php:70
  * @route '/admin/productos-variantes/{productos_variante}'
  */
     const destroyForm = (args: { productos_variante: string | number } | [productos_variante: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -581,7 +581,7 @@ destroy.delete = (args: { productos_variante: string | number } | [productos_var
 
             /**
 * @see \App\Http\Controllers\ProductoVarianteController::destroy
- * @see app/Http/Controllers/ProductoVarianteController.php:49
+ * @see app/Http/Controllers/ProductoVarianteController.php:70
  * @route '/admin/productos-variantes/{productos_variante}'
  */
         destroyForm.delete = (args: { productos_variante: string | number } | [productos_variante: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

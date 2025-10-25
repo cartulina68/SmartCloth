@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../wayfinder'
 /**
 * @see \App\Http\Controllers\ColorController::index
- * @see app/Http/Controllers/ColorController.php:10
+ * @see app/Http/Controllers/ColorController.php:11
  * @route '/admin/colores'
  */
 export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ index.definition = {
 
 /**
 * @see \App\Http\Controllers\ColorController::index
- * @see app/Http/Controllers/ColorController.php:10
+ * @see app/Http/Controllers/ColorController.php:11
  * @route '/admin/colores'
  */
 index.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ index.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\ColorController::index
- * @see app/Http/Controllers/ColorController.php:10
+ * @see app/Http/Controllers/ColorController.php:11
  * @route '/admin/colores'
  */
 index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -34,7 +34,7 @@ index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Http\Controllers\ColorController::index
- * @see app/Http/Controllers/ColorController.php:10
+ * @see app/Http/Controllers/ColorController.php:11
  * @route '/admin/colores'
  */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -44,7 +44,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Http\Controllers\ColorController::index
- * @see app/Http/Controllers/ColorController.php:10
+ * @see app/Http/Controllers/ColorController.php:11
  * @route '/admin/colores'
  */
     const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -54,7 +54,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Http\Controllers\ColorController::index
- * @see app/Http/Controllers/ColorController.php:10
+ * @see app/Http/Controllers/ColorController.php:11
  * @route '/admin/colores'
  */
         indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -63,7 +63,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Http\Controllers\ColorController::index
- * @see app/Http/Controllers/ColorController.php:10
+ * @see app/Http/Controllers/ColorController.php:11
  * @route '/admin/colores'
  */
         indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -78,86 +78,8 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     
     index.form = indexForm
 /**
-* @see \App\Http\Controllers\ColorController::create
- * @see app/Http/Controllers/ColorController.php:0
- * @route '/admin/colores/create'
- */
-export const create = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: create.url(options),
-    method: 'get',
-})
-
-create.definition = {
-    methods: ["get","head"],
-    url: '/admin/colores/create',
-} satisfies RouteDefinition<["get","head"]>
-
-/**
-* @see \App\Http\Controllers\ColorController::create
- * @see app/Http/Controllers/ColorController.php:0
- * @route '/admin/colores/create'
- */
-create.url = (options?: RouteQueryOptions) => {
-    return create.definition.url + queryParams(options)
-}
-
-/**
-* @see \App\Http\Controllers\ColorController::create
- * @see app/Http/Controllers/ColorController.php:0
- * @route '/admin/colores/create'
- */
-create.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: create.url(options),
-    method: 'get',
-})
-/**
-* @see \App\Http\Controllers\ColorController::create
- * @see app/Http/Controllers/ColorController.php:0
- * @route '/admin/colores/create'
- */
-create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: create.url(options),
-    method: 'head',
-})
-
-    /**
-* @see \App\Http\Controllers\ColorController::create
- * @see app/Http/Controllers/ColorController.php:0
- * @route '/admin/colores/create'
- */
-    const createForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-        action: create.url(options),
-        method: 'get',
-    })
-
-            /**
-* @see \App\Http\Controllers\ColorController::create
- * @see app/Http/Controllers/ColorController.php:0
- * @route '/admin/colores/create'
- */
-        createForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-            action: create.url(options),
-            method: 'get',
-        })
-            /**
-* @see \App\Http\Controllers\ColorController::create
- * @see app/Http/Controllers/ColorController.php:0
- * @route '/admin/colores/create'
- */
-        createForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-            action: create.url({
-                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-                            _method: 'HEAD',
-                            ...(options?.query ?? options?.mergeQuery ?? {}),
-                        }
-                    }),
-            method: 'get',
-        })
-    
-    create.form = createForm
-/**
 * @see \App\Http\Controllers\ColorController::store
- * @see app/Http/Controllers/ColorController.php:15
+ * @see app/Http/Controllers/ColorController.php:17
  * @route '/admin/colores'
  */
 export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -172,7 +94,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\ColorController::store
- * @see app/Http/Controllers/ColorController.php:15
+ * @see app/Http/Controllers/ColorController.php:17
  * @route '/admin/colores'
  */
 store.url = (options?: RouteQueryOptions) => {
@@ -181,7 +103,7 @@ store.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\ColorController::store
- * @see app/Http/Controllers/ColorController.php:15
+ * @see app/Http/Controllers/ColorController.php:17
  * @route '/admin/colores'
  */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -191,7 +113,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
     /**
 * @see \App\Http\Controllers\ColorController::store
- * @see app/Http/Controllers/ColorController.php:15
+ * @see app/Http/Controllers/ColorController.php:17
  * @route '/admin/colores'
  */
     const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -201,7 +123,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
             /**
 * @see \App\Http\Controllers\ColorController::store
- * @see app/Http/Controllers/ColorController.php:15
+ * @see app/Http/Controllers/ColorController.php:17
  * @route '/admin/colores'
  */
         storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -212,91 +134,96 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     store.form = storeForm
 /**
 * @see \App\Http\Controllers\ColorController::show
- * @see app/Http/Controllers/ColorController.php:26
- * @route '/admin/colores/{colore}'
+ * @see app/Http/Controllers/ColorController.php:29
+ * @route '/admin/colores/{color}'
  */
-export const show = (args: { colore: string | number } | [colore: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+export const show = (args: { color: number | { id: number } } | [color: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: show.url(args, options),
     method: 'get',
 })
 
 show.definition = {
     methods: ["get","head"],
-    url: '/admin/colores/{colore}',
+    url: '/admin/colores/{color}',
 } satisfies RouteDefinition<["get","head"]>
 
 /**
 * @see \App\Http\Controllers\ColorController::show
- * @see app/Http/Controllers/ColorController.php:26
- * @route '/admin/colores/{colore}'
+ * @see app/Http/Controllers/ColorController.php:29
+ * @route '/admin/colores/{color}'
  */
-show.url = (args: { colore: string | number } | [colore: string | number ] | string | number, options?: RouteQueryOptions) => {
+show.url = (args: { color: number | { id: number } } | [color: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
-        args = { colore: args }
+        args = { color: args }
     }
 
+            if (typeof args === 'object' && !Array.isArray(args) && 'id' in args) {
+            args = { color: args.id }
+        }
     
     if (Array.isArray(args)) {
         args = {
-                    colore: args[0],
+                    color: args[0],
                 }
     }
 
     args = applyUrlDefaults(args)
 
     const parsedArgs = {
-                        colore: args.colore,
+                        color: typeof args.color === 'object'
+                ? args.color.id
+                : args.color,
                 }
 
     return show.definition.url
-            .replace('{colore}', parsedArgs.colore.toString())
+            .replace('{color}', parsedArgs.color.toString())
             .replace(/\/+$/, '') + queryParams(options)
 }
 
 /**
 * @see \App\Http\Controllers\ColorController::show
- * @see app/Http/Controllers/ColorController.php:26
- * @route '/admin/colores/{colore}'
+ * @see app/Http/Controllers/ColorController.php:29
+ * @route '/admin/colores/{color}'
  */
-show.get = (args: { colore: string | number } | [colore: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+show.get = (args: { color: number | { id: number } } | [color: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: show.url(args, options),
     method: 'get',
 })
 /**
 * @see \App\Http\Controllers\ColorController::show
- * @see app/Http/Controllers/ColorController.php:26
- * @route '/admin/colores/{colore}'
+ * @see app/Http/Controllers/ColorController.php:29
+ * @route '/admin/colores/{color}'
  */
-show.head = (args: { colore: string | number } | [colore: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+show.head = (args: { color: number | { id: number } } | [color: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: show.url(args, options),
     method: 'head',
 })
 
     /**
 * @see \App\Http\Controllers\ColorController::show
- * @see app/Http/Controllers/ColorController.php:26
- * @route '/admin/colores/{colore}'
+ * @see app/Http/Controllers/ColorController.php:29
+ * @route '/admin/colores/{color}'
  */
-    const showForm = (args: { colore: string | number } | [colore: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    const showForm = (args: { color: number | { id: number } } | [color: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
         action: show.url(args, options),
         method: 'get',
     })
 
             /**
 * @see \App\Http\Controllers\ColorController::show
- * @see app/Http/Controllers/ColorController.php:26
- * @route '/admin/colores/{colore}'
+ * @see app/Http/Controllers/ColorController.php:29
+ * @route '/admin/colores/{color}'
  */
-        showForm.get = (args: { colore: string | number } | [colore: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        showForm.get = (args: { color: number | { id: number } } | [color: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: show.url(args, options),
             method: 'get',
         })
             /**
 * @see \App\Http\Controllers\ColorController::show
- * @see app/Http/Controllers/ColorController.php:26
- * @route '/admin/colores/{colore}'
+ * @see app/Http/Controllers/ColorController.php:29
+ * @route '/admin/colores/{color}'
  */
-        showForm.head = (args: { colore: string | number } | [colore: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        showForm.head = (args: { color: number | { id: number } } | [color: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: show.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'HEAD',
@@ -308,170 +235,69 @@ show.head = (args: { colore: string | number } | [colore: string | number ] | st
     
     show.form = showForm
 /**
-* @see \App\Http\Controllers\ColorController::edit
- * @see app/Http/Controllers/ColorController.php:0
- * @route '/admin/colores/{colore}/edit'
- */
-export const edit = (args: { colore: string | number } | [colore: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: edit.url(args, options),
-    method: 'get',
-})
-
-edit.definition = {
-    methods: ["get","head"],
-    url: '/admin/colores/{colore}/edit',
-} satisfies RouteDefinition<["get","head"]>
-
-/**
-* @see \App\Http\Controllers\ColorController::edit
- * @see app/Http/Controllers/ColorController.php:0
- * @route '/admin/colores/{colore}/edit'
- */
-edit.url = (args: { colore: string | number } | [colore: string | number ] | string | number, options?: RouteQueryOptions) => {
-    if (typeof args === 'string' || typeof args === 'number') {
-        args = { colore: args }
-    }
-
-    
-    if (Array.isArray(args)) {
-        args = {
-                    colore: args[0],
-                }
-    }
-
-    args = applyUrlDefaults(args)
-
-    const parsedArgs = {
-                        colore: args.colore,
-                }
-
-    return edit.definition.url
-            .replace('{colore}', parsedArgs.colore.toString())
-            .replace(/\/+$/, '') + queryParams(options)
-}
-
-/**
-* @see \App\Http\Controllers\ColorController::edit
- * @see app/Http/Controllers/ColorController.php:0
- * @route '/admin/colores/{colore}/edit'
- */
-edit.get = (args: { colore: string | number } | [colore: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
-    url: edit.url(args, options),
-    method: 'get',
-})
-/**
-* @see \App\Http\Controllers\ColorController::edit
- * @see app/Http/Controllers/ColorController.php:0
- * @route '/admin/colores/{colore}/edit'
- */
-edit.head = (args: { colore: string | number } | [colore: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
-    url: edit.url(args, options),
-    method: 'head',
-})
-
-    /**
-* @see \App\Http\Controllers\ColorController::edit
- * @see app/Http/Controllers/ColorController.php:0
- * @route '/admin/colores/{colore}/edit'
- */
-    const editForm = (args: { colore: string | number } | [colore: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-        action: edit.url(args, options),
-        method: 'get',
-    })
-
-            /**
-* @see \App\Http\Controllers\ColorController::edit
- * @see app/Http/Controllers/ColorController.php:0
- * @route '/admin/colores/{colore}/edit'
- */
-        editForm.get = (args: { colore: string | number } | [colore: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-            action: edit.url(args, options),
-            method: 'get',
-        })
-            /**
-* @see \App\Http\Controllers\ColorController::edit
- * @see app/Http/Controllers/ColorController.php:0
- * @route '/admin/colores/{colore}/edit'
- */
-        editForm.head = (args: { colore: string | number } | [colore: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
-            action: edit.url(args, {
-                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-                            _method: 'HEAD',
-                            ...(options?.query ?? options?.mergeQuery ?? {}),
-                        }
-                    }),
-            method: 'get',
-        })
-    
-    edit.form = editForm
-/**
 * @see \App\Http\Controllers\ColorController::update
- * @see app/Http/Controllers/ColorController.php:31
- * @route '/admin/colores/{colore}'
+ * @see app/Http/Controllers/ColorController.php:34
+ * @route '/admin/colores/{color}'
  */
-export const update = (args: { colore: string | number } | [colore: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+export const update = (args: { color: number | { id: number } } | [color: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update.url(args, options),
     method: 'put',
 })
 
 update.definition = {
-    methods: ["put","patch"],
-    url: '/admin/colores/{colore}',
-} satisfies RouteDefinition<["put","patch"]>
+    methods: ["put"],
+    url: '/admin/colores/{color}',
+} satisfies RouteDefinition<["put"]>
 
 /**
 * @see \App\Http\Controllers\ColorController::update
- * @see app/Http/Controllers/ColorController.php:31
- * @route '/admin/colores/{colore}'
+ * @see app/Http/Controllers/ColorController.php:34
+ * @route '/admin/colores/{color}'
  */
-update.url = (args: { colore: string | number } | [colore: string | number ] | string | number, options?: RouteQueryOptions) => {
+update.url = (args: { color: number | { id: number } } | [color: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
-        args = { colore: args }
+        args = { color: args }
     }
 
+            if (typeof args === 'object' && !Array.isArray(args) && 'id' in args) {
+            args = { color: args.id }
+        }
     
     if (Array.isArray(args)) {
         args = {
-                    colore: args[0],
+                    color: args[0],
                 }
     }
 
     args = applyUrlDefaults(args)
 
     const parsedArgs = {
-                        colore: args.colore,
+                        color: typeof args.color === 'object'
+                ? args.color.id
+                : args.color,
                 }
 
     return update.definition.url
-            .replace('{colore}', parsedArgs.colore.toString())
+            .replace('{color}', parsedArgs.color.toString())
             .replace(/\/+$/, '') + queryParams(options)
 }
 
 /**
 * @see \App\Http\Controllers\ColorController::update
- * @see app/Http/Controllers/ColorController.php:31
- * @route '/admin/colores/{colore}'
+ * @see app/Http/Controllers/ColorController.php:34
+ * @route '/admin/colores/{color}'
  */
-update.put = (args: { colore: string | number } | [colore: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+update.put = (args: { color: number | { id: number } } | [color: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update.url(args, options),
     method: 'put',
-})
-/**
-* @see \App\Http\Controllers\ColorController::update
- * @see app/Http/Controllers/ColorController.php:31
- * @route '/admin/colores/{colore}'
- */
-update.patch = (args: { colore: string | number } | [colore: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
-    url: update.url(args, options),
-    method: 'patch',
 })
 
     /**
 * @see \App\Http\Controllers\ColorController::update
- * @see app/Http/Controllers/ColorController.php:31
- * @route '/admin/colores/{colore}'
+ * @see app/Http/Controllers/ColorController.php:34
+ * @route '/admin/colores/{color}'
  */
-    const updateForm = (args: { colore: string | number } | [colore: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const updateForm = (args: { color: number | { id: number } } | [color: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: update.url(args, {
                     [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                         _method: 'PUT',
@@ -483,27 +309,13 @@ update.patch = (args: { colore: string | number } | [colore: string | number ] |
 
             /**
 * @see \App\Http\Controllers\ColorController::update
- * @see app/Http/Controllers/ColorController.php:31
- * @route '/admin/colores/{colore}'
+ * @see app/Http/Controllers/ColorController.php:34
+ * @route '/admin/colores/{color}'
  */
-        updateForm.put = (args: { colore: string | number } | [colore: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        updateForm.put = (args: { color: number | { id: number } } | [color: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: update.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'PUT',
-                            ...(options?.query ?? options?.mergeQuery ?? {}),
-                        }
-                    }),
-            method: 'post',
-        })
-            /**
-* @see \App\Http\Controllers\ColorController::update
- * @see app/Http/Controllers/ColorController.php:31
- * @route '/admin/colores/{colore}'
- */
-        updateForm.patch = (args: { colore: string | number } | [colore: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
-            action: update.url(args, {
-                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
-                            _method: 'PATCH',
                             ...(options?.query ?? options?.mergeQuery ?? {}),
                         }
                     }),
@@ -513,63 +325,68 @@ update.patch = (args: { colore: string | number } | [colore: string | number ] |
     update.form = updateForm
 /**
 * @see \App\Http\Controllers\ColorController::destroy
- * @see app/Http/Controllers/ColorController.php:42
- * @route '/admin/colores/{colore}'
+ * @see app/Http/Controllers/ColorController.php:46
+ * @route '/admin/colores/{color}'
  */
-export const destroy = (args: { colore: string | number } | [colore: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+export const destroy = (args: { color: number | { id: number } } | [color: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy.url(args, options),
     method: 'delete',
 })
 
 destroy.definition = {
     methods: ["delete"],
-    url: '/admin/colores/{colore}',
+    url: '/admin/colores/{color}',
 } satisfies RouteDefinition<["delete"]>
 
 /**
 * @see \App\Http\Controllers\ColorController::destroy
- * @see app/Http/Controllers/ColorController.php:42
- * @route '/admin/colores/{colore}'
+ * @see app/Http/Controllers/ColorController.php:46
+ * @route '/admin/colores/{color}'
  */
-destroy.url = (args: { colore: string | number } | [colore: string | number ] | string | number, options?: RouteQueryOptions) => {
+destroy.url = (args: { color: number | { id: number } } | [color: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
-        args = { colore: args }
+        args = { color: args }
     }
 
+            if (typeof args === 'object' && !Array.isArray(args) && 'id' in args) {
+            args = { color: args.id }
+        }
     
     if (Array.isArray(args)) {
         args = {
-                    colore: args[0],
+                    color: args[0],
                 }
     }
 
     args = applyUrlDefaults(args)
 
     const parsedArgs = {
-                        colore: args.colore,
+                        color: typeof args.color === 'object'
+                ? args.color.id
+                : args.color,
                 }
 
     return destroy.definition.url
-            .replace('{colore}', parsedArgs.colore.toString())
+            .replace('{color}', parsedArgs.color.toString())
             .replace(/\/+$/, '') + queryParams(options)
 }
 
 /**
 * @see \App\Http\Controllers\ColorController::destroy
- * @see app/Http/Controllers/ColorController.php:42
- * @route '/admin/colores/{colore}'
+ * @see app/Http/Controllers/ColorController.php:46
+ * @route '/admin/colores/{color}'
  */
-destroy.delete = (args: { colore: string | number } | [colore: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+destroy.delete = (args: { color: number | { id: number } } | [color: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy.url(args, options),
     method: 'delete',
 })
 
     /**
 * @see \App\Http\Controllers\ColorController::destroy
- * @see app/Http/Controllers/ColorController.php:42
- * @route '/admin/colores/{colore}'
+ * @see app/Http/Controllers/ColorController.php:46
+ * @route '/admin/colores/{color}'
  */
-    const destroyForm = (args: { colore: string | number } | [colore: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const destroyForm = (args: { color: number | { id: number } } | [color: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: destroy.url(args, {
                     [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                         _method: 'DELETE',
@@ -581,10 +398,10 @@ destroy.delete = (args: { colore: string | number } | [colore: string | number ]
 
             /**
 * @see \App\Http\Controllers\ColorController::destroy
- * @see app/Http/Controllers/ColorController.php:42
- * @route '/admin/colores/{colore}'
+ * @see app/Http/Controllers/ColorController.php:46
+ * @route '/admin/colores/{color}'
  */
-        destroyForm.delete = (args: { colore: string | number } | [colore: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        destroyForm.delete = (args: { color: number | { id: number } } | [color: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: destroy.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'DELETE',
@@ -597,10 +414,8 @@ destroy.delete = (args: { colore: string | number } | [colore: string | number ]
     destroy.form = destroyForm
 const colores = {
     index: Object.assign(index, index),
-create: Object.assign(create, create),
 store: Object.assign(store, store),
 show: Object.assign(show, show),
-edit: Object.assign(edit, edit),
 update: Object.assign(update, update),
 destroy: Object.assign(destroy, destroy),
 }

@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../wayfinder'
 /**
 * @see \App\Http\Controllers\GeneroController::index
- * @see app/Http/Controllers/GeneroController.php:10
+ * @see app/Http/Controllers/GeneroController.php:11
  * @route '/admin/generos'
  */
 export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ index.definition = {
 
 /**
 * @see \App\Http\Controllers\GeneroController::index
- * @see app/Http/Controllers/GeneroController.php:10
+ * @see app/Http/Controllers/GeneroController.php:11
  * @route '/admin/generos'
  */
 index.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ index.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\GeneroController::index
- * @see app/Http/Controllers/GeneroController.php:10
+ * @see app/Http/Controllers/GeneroController.php:11
  * @route '/admin/generos'
  */
 index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -34,7 +34,7 @@ index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Http\Controllers\GeneroController::index
- * @see app/Http/Controllers/GeneroController.php:10
+ * @see app/Http/Controllers/GeneroController.php:11
  * @route '/admin/generos'
  */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -44,7 +44,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Http\Controllers\GeneroController::index
- * @see app/Http/Controllers/GeneroController.php:10
+ * @see app/Http/Controllers/GeneroController.php:11
  * @route '/admin/generos'
  */
     const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -54,7 +54,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Http\Controllers\GeneroController::index
- * @see app/Http/Controllers/GeneroController.php:10
+ * @see app/Http/Controllers/GeneroController.php:11
  * @route '/admin/generos'
  */
         indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -63,7 +63,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Http\Controllers\GeneroController::index
- * @see app/Http/Controllers/GeneroController.php:10
+ * @see app/Http/Controllers/GeneroController.php:11
  * @route '/admin/generos'
  */
         indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -157,7 +157,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     create.form = createForm
 /**
 * @see \App\Http\Controllers\GeneroController::store
- * @see app/Http/Controllers/GeneroController.php:15
+ * @see app/Http/Controllers/GeneroController.php:17
  * @route '/admin/generos'
  */
 export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -172,7 +172,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\GeneroController::store
- * @see app/Http/Controllers/GeneroController.php:15
+ * @see app/Http/Controllers/GeneroController.php:17
  * @route '/admin/generos'
  */
 store.url = (options?: RouteQueryOptions) => {
@@ -181,7 +181,7 @@ store.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\GeneroController::store
- * @see app/Http/Controllers/GeneroController.php:15
+ * @see app/Http/Controllers/GeneroController.php:17
  * @route '/admin/generos'
  */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -191,7 +191,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
     /**
 * @see \App\Http\Controllers\GeneroController::store
- * @see app/Http/Controllers/GeneroController.php:15
+ * @see app/Http/Controllers/GeneroController.php:17
  * @route '/admin/generos'
  */
     const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -201,7 +201,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
             /**
 * @see \App\Http\Controllers\GeneroController::store
- * @see app/Http/Controllers/GeneroController.php:15
+ * @see app/Http/Controllers/GeneroController.php:17
  * @route '/admin/generos'
  */
         storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -212,7 +212,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     store.form = storeForm
 /**
 * @see \App\Http\Controllers\GeneroController::show
- * @see app/Http/Controllers/GeneroController.php:25
+ * @see app/Http/Controllers/GeneroController.php:28
  * @route '/admin/generos/{genero}'
  */
 export const show = (args: { genero: string | number } | [genero: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -227,7 +227,7 @@ show.definition = {
 
 /**
 * @see \App\Http\Controllers\GeneroController::show
- * @see app/Http/Controllers/GeneroController.php:25
+ * @see app/Http/Controllers/GeneroController.php:28
  * @route '/admin/generos/{genero}'
  */
 show.url = (args: { genero: string | number } | [genero: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -255,7 +255,7 @@ show.url = (args: { genero: string | number } | [genero: string | number ] | str
 
 /**
 * @see \App\Http\Controllers\GeneroController::show
- * @see app/Http/Controllers/GeneroController.php:25
+ * @see app/Http/Controllers/GeneroController.php:28
  * @route '/admin/generos/{genero}'
  */
 show.get = (args: { genero: string | number } | [genero: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -264,7 +264,7 @@ show.get = (args: { genero: string | number } | [genero: string | number ] | str
 })
 /**
 * @see \App\Http\Controllers\GeneroController::show
- * @see app/Http/Controllers/GeneroController.php:25
+ * @see app/Http/Controllers/GeneroController.php:28
  * @route '/admin/generos/{genero}'
  */
 show.head = (args: { genero: string | number } | [genero: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -274,7 +274,7 @@ show.head = (args: { genero: string | number } | [genero: string | number ] | st
 
     /**
 * @see \App\Http\Controllers\GeneroController::show
- * @see app/Http/Controllers/GeneroController.php:25
+ * @see app/Http/Controllers/GeneroController.php:28
  * @route '/admin/generos/{genero}'
  */
     const showForm = (args: { genero: string | number } | [genero: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -284,7 +284,7 @@ show.head = (args: { genero: string | number } | [genero: string | number ] | st
 
             /**
 * @see \App\Http\Controllers\GeneroController::show
- * @see app/Http/Controllers/GeneroController.php:25
+ * @see app/Http/Controllers/GeneroController.php:28
  * @route '/admin/generos/{genero}'
  */
         showForm.get = (args: { genero: string | number } | [genero: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -293,7 +293,7 @@ show.head = (args: { genero: string | number } | [genero: string | number ] | st
         })
             /**
 * @see \App\Http\Controllers\GeneroController::show
- * @see app/Http/Controllers/GeneroController.php:25
+ * @see app/Http/Controllers/GeneroController.php:28
  * @route '/admin/generos/{genero}'
  */
         showForm.head = (args: { genero: string | number } | [genero: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -406,7 +406,7 @@ edit.head = (args: { genero: string | number } | [genero: string | number ] | st
     edit.form = editForm
 /**
 * @see \App\Http\Controllers\GeneroController::update
- * @see app/Http/Controllers/GeneroController.php:30
+ * @see app/Http/Controllers/GeneroController.php:33
  * @route '/admin/generos/{genero}'
  */
 export const update = (args: { genero: string | number } | [genero: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -421,7 +421,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\GeneroController::update
- * @see app/Http/Controllers/GeneroController.php:30
+ * @see app/Http/Controllers/GeneroController.php:33
  * @route '/admin/generos/{genero}'
  */
 update.url = (args: { genero: string | number } | [genero: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -449,7 +449,7 @@ update.url = (args: { genero: string | number } | [genero: string | number ] | s
 
 /**
 * @see \App\Http\Controllers\GeneroController::update
- * @see app/Http/Controllers/GeneroController.php:30
+ * @see app/Http/Controllers/GeneroController.php:33
  * @route '/admin/generos/{genero}'
  */
 update.put = (args: { genero: string | number } | [genero: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -458,7 +458,7 @@ update.put = (args: { genero: string | number } | [genero: string | number ] | s
 })
 /**
 * @see \App\Http\Controllers\GeneroController::update
- * @see app/Http/Controllers/GeneroController.php:30
+ * @see app/Http/Controllers/GeneroController.php:33
  * @route '/admin/generos/{genero}'
  */
 update.patch = (args: { genero: string | number } | [genero: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -468,7 +468,7 @@ update.patch = (args: { genero: string | number } | [genero: string | number ] |
 
     /**
 * @see \App\Http\Controllers\GeneroController::update
- * @see app/Http/Controllers/GeneroController.php:30
+ * @see app/Http/Controllers/GeneroController.php:33
  * @route '/admin/generos/{genero}'
  */
     const updateForm = (args: { genero: string | number } | [genero: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -483,7 +483,7 @@ update.patch = (args: { genero: string | number } | [genero: string | number ] |
 
             /**
 * @see \App\Http\Controllers\GeneroController::update
- * @see app/Http/Controllers/GeneroController.php:30
+ * @see app/Http/Controllers/GeneroController.php:33
  * @route '/admin/generos/{genero}'
  */
         updateForm.put = (args: { genero: string | number } | [genero: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -497,7 +497,7 @@ update.patch = (args: { genero: string | number } | [genero: string | number ] |
         })
             /**
 * @see \App\Http\Controllers\GeneroController::update
- * @see app/Http/Controllers/GeneroController.php:30
+ * @see app/Http/Controllers/GeneroController.php:33
  * @route '/admin/generos/{genero}'
  */
         updateForm.patch = (args: { genero: string | number } | [genero: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -513,7 +513,7 @@ update.patch = (args: { genero: string | number } | [genero: string | number ] |
     update.form = updateForm
 /**
 * @see \App\Http\Controllers\GeneroController::destroy
- * @see app/Http/Controllers/GeneroController.php:40
+ * @see app/Http/Controllers/GeneroController.php:43
  * @route '/admin/generos/{genero}'
  */
 export const destroy = (args: { genero: string | number } | [genero: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -528,7 +528,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\GeneroController::destroy
- * @see app/Http/Controllers/GeneroController.php:40
+ * @see app/Http/Controllers/GeneroController.php:43
  * @route '/admin/generos/{genero}'
  */
 destroy.url = (args: { genero: string | number } | [genero: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -556,7 +556,7 @@ destroy.url = (args: { genero: string | number } | [genero: string | number ] | 
 
 /**
 * @see \App\Http\Controllers\GeneroController::destroy
- * @see app/Http/Controllers/GeneroController.php:40
+ * @see app/Http/Controllers/GeneroController.php:43
  * @route '/admin/generos/{genero}'
  */
 destroy.delete = (args: { genero: string | number } | [genero: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -566,7 +566,7 @@ destroy.delete = (args: { genero: string | number } | [genero: string | number ]
 
     /**
 * @see \App\Http\Controllers\GeneroController::destroy
- * @see app/Http/Controllers/GeneroController.php:40
+ * @see app/Http/Controllers/GeneroController.php:43
  * @route '/admin/generos/{genero}'
  */
     const destroyForm = (args: { genero: string | number } | [genero: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -581,7 +581,7 @@ destroy.delete = (args: { genero: string | number } | [genero: string | number ]
 
             /**
 * @see \App\Http\Controllers\GeneroController::destroy
- * @see app/Http/Controllers/GeneroController.php:40
+ * @see app/Http/Controllers/GeneroController.php:43
  * @route '/admin/generos/{genero}'
  */
         destroyForm.delete = (args: { genero: string | number } | [genero: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

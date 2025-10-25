@@ -1,5 +1,6 @@
 import { NavMain } from '@/components/nav-main';
 import { NavUser } from '@/components/nav-user';
+
 import {
     Sidebar,
     SidebarContent,
@@ -12,9 +13,8 @@ import {
 import { dashboard } from '@/routes';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
-import { LayoutGrid, List } from 'lucide-react'; // List será el icono para Categorías
+import { LayoutGrid, List, Palette, Type, Box } from 'lucide-react'; // Box será el icono para Productos
 import AppLogo from './app-logo';
-
 
 const mainNavItems: NavItem[] = [
     {
@@ -26,6 +26,21 @@ const mainNavItems: NavItem[] = [
         title: 'Categorías',
         href: '/admin/categorias',
         icon: List,
+    },
+    {
+        title: 'Colores',
+        href: '/admin/colores',
+        icon: Palette,
+    },
+    {
+        title: 'Tallas',
+        href: '/admin/tallas',
+        icon: Type,
+    },
+    {
+        title: 'Productos',
+        href: '/admin/productos',
+        icon: Box,
     },
 ];
 

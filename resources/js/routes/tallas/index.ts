@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../wayfinder'
 /**
 * @see \App\Http\Controllers\TallaController::index
- * @see app/Http/Controllers/TallaController.php:10
+ * @see app/Http/Controllers/TallaController.php:11
  * @route '/admin/tallas'
  */
 export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ index.definition = {
 
 /**
 * @see \App\Http\Controllers\TallaController::index
- * @see app/Http/Controllers/TallaController.php:10
+ * @see app/Http/Controllers/TallaController.php:11
  * @route '/admin/tallas'
  */
 index.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ index.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\TallaController::index
- * @see app/Http/Controllers/TallaController.php:10
+ * @see app/Http/Controllers/TallaController.php:11
  * @route '/admin/tallas'
  */
 index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -34,7 +34,7 @@ index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Http\Controllers\TallaController::index
- * @see app/Http/Controllers/TallaController.php:10
+ * @see app/Http/Controllers/TallaController.php:11
  * @route '/admin/tallas'
  */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -44,7 +44,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Http\Controllers\TallaController::index
- * @see app/Http/Controllers/TallaController.php:10
+ * @see app/Http/Controllers/TallaController.php:11
  * @route '/admin/tallas'
  */
     const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -54,7 +54,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Http\Controllers\TallaController::index
- * @see app/Http/Controllers/TallaController.php:10
+ * @see app/Http/Controllers/TallaController.php:11
  * @route '/admin/tallas'
  */
         indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -63,7 +63,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Http\Controllers\TallaController::index
- * @see app/Http/Controllers/TallaController.php:10
+ * @see app/Http/Controllers/TallaController.php:11
  * @route '/admin/tallas'
  */
         indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -157,7 +157,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     create.form = createForm
 /**
 * @see \App\Http\Controllers\TallaController::store
- * @see app/Http/Controllers/TallaController.php:15
+ * @see app/Http/Controllers/TallaController.php:17
  * @route '/admin/tallas'
  */
 export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -172,7 +172,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\TallaController::store
- * @see app/Http/Controllers/TallaController.php:15
+ * @see app/Http/Controllers/TallaController.php:17
  * @route '/admin/tallas'
  */
 store.url = (options?: RouteQueryOptions) => {
@@ -181,7 +181,7 @@ store.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\TallaController::store
- * @see app/Http/Controllers/TallaController.php:15
+ * @see app/Http/Controllers/TallaController.php:17
  * @route '/admin/tallas'
  */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -191,7 +191,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
     /**
 * @see \App\Http\Controllers\TallaController::store
- * @see app/Http/Controllers/TallaController.php:15
+ * @see app/Http/Controllers/TallaController.php:17
  * @route '/admin/tallas'
  */
     const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -201,7 +201,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
             /**
 * @see \App\Http\Controllers\TallaController::store
- * @see app/Http/Controllers/TallaController.php:15
+ * @see app/Http/Controllers/TallaController.php:17
  * @route '/admin/tallas'
  */
         storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -212,7 +212,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     store.form = storeForm
 /**
 * @see \App\Http\Controllers\TallaController::show
- * @see app/Http/Controllers/TallaController.php:25
+ * @see app/Http/Controllers/TallaController.php:30
  * @route '/admin/tallas/{talla}'
  */
 export const show = (args: { talla: number | { id: number } } | [talla: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -227,7 +227,7 @@ show.definition = {
 
 /**
 * @see \App\Http\Controllers\TallaController::show
- * @see app/Http/Controllers/TallaController.php:25
+ * @see app/Http/Controllers/TallaController.php:30
  * @route '/admin/tallas/{talla}'
  */
 show.url = (args: { talla: number | { id: number } } | [talla: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -260,7 +260,7 @@ show.url = (args: { talla: number | { id: number } } | [talla: number | { id: nu
 
 /**
 * @see \App\Http\Controllers\TallaController::show
- * @see app/Http/Controllers/TallaController.php:25
+ * @see app/Http/Controllers/TallaController.php:30
  * @route '/admin/tallas/{talla}'
  */
 show.get = (args: { talla: number | { id: number } } | [talla: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -269,7 +269,7 @@ show.get = (args: { talla: number | { id: number } } | [talla: number | { id: nu
 })
 /**
 * @see \App\Http\Controllers\TallaController::show
- * @see app/Http/Controllers/TallaController.php:25
+ * @see app/Http/Controllers/TallaController.php:30
  * @route '/admin/tallas/{talla}'
  */
 show.head = (args: { talla: number | { id: number } } | [talla: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -279,7 +279,7 @@ show.head = (args: { talla: number | { id: number } } | [talla: number | { id: n
 
     /**
 * @see \App\Http\Controllers\TallaController::show
- * @see app/Http/Controllers/TallaController.php:25
+ * @see app/Http/Controllers/TallaController.php:30
  * @route '/admin/tallas/{talla}'
  */
     const showForm = (args: { talla: number | { id: number } } | [talla: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -289,7 +289,7 @@ show.head = (args: { talla: number | { id: number } } | [talla: number | { id: n
 
             /**
 * @see \App\Http\Controllers\TallaController::show
- * @see app/Http/Controllers/TallaController.php:25
+ * @see app/Http/Controllers/TallaController.php:30
  * @route '/admin/tallas/{talla}'
  */
         showForm.get = (args: { talla: number | { id: number } } | [talla: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -298,7 +298,7 @@ show.head = (args: { talla: number | { id: number } } | [talla: number | { id: n
         })
             /**
 * @see \App\Http\Controllers\TallaController::show
- * @see app/Http/Controllers/TallaController.php:25
+ * @see app/Http/Controllers/TallaController.php:30
  * @route '/admin/tallas/{talla}'
  */
         showForm.head = (args: { talla: number | { id: number } } | [talla: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -411,7 +411,7 @@ edit.head = (args: { talla: string | number } | [talla: string | number ] | stri
     edit.form = editForm
 /**
 * @see \App\Http\Controllers\TallaController::update
- * @see app/Http/Controllers/TallaController.php:30
+ * @see app/Http/Controllers/TallaController.php:35
  * @route '/admin/tallas/{talla}'
  */
 export const update = (args: { talla: number | { id: number } } | [talla: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -426,7 +426,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\TallaController::update
- * @see app/Http/Controllers/TallaController.php:30
+ * @see app/Http/Controllers/TallaController.php:35
  * @route '/admin/tallas/{talla}'
  */
 update.url = (args: { talla: number | { id: number } } | [talla: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -459,7 +459,7 @@ update.url = (args: { talla: number | { id: number } } | [talla: number | { id: 
 
 /**
 * @see \App\Http\Controllers\TallaController::update
- * @see app/Http/Controllers/TallaController.php:30
+ * @see app/Http/Controllers/TallaController.php:35
  * @route '/admin/tallas/{talla}'
  */
 update.put = (args: { talla: number | { id: number } } | [talla: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -468,7 +468,7 @@ update.put = (args: { talla: number | { id: number } } | [talla: number | { id: 
 })
 /**
 * @see \App\Http\Controllers\TallaController::update
- * @see app/Http/Controllers/TallaController.php:30
+ * @see app/Http/Controllers/TallaController.php:35
  * @route '/admin/tallas/{talla}'
  */
 update.patch = (args: { talla: number | { id: number } } | [talla: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -478,7 +478,7 @@ update.patch = (args: { talla: number | { id: number } } | [talla: number | { id
 
     /**
 * @see \App\Http\Controllers\TallaController::update
- * @see app/Http/Controllers/TallaController.php:30
+ * @see app/Http/Controllers/TallaController.php:35
  * @route '/admin/tallas/{talla}'
  */
     const updateForm = (args: { talla: number | { id: number } } | [talla: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -493,7 +493,7 @@ update.patch = (args: { talla: number | { id: number } } | [talla: number | { id
 
             /**
 * @see \App\Http\Controllers\TallaController::update
- * @see app/Http/Controllers/TallaController.php:30
+ * @see app/Http/Controllers/TallaController.php:35
  * @route '/admin/tallas/{talla}'
  */
         updateForm.put = (args: { talla: number | { id: number } } | [talla: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -507,7 +507,7 @@ update.patch = (args: { talla: number | { id: number } } | [talla: number | { id
         })
             /**
 * @see \App\Http\Controllers\TallaController::update
- * @see app/Http/Controllers/TallaController.php:30
+ * @see app/Http/Controllers/TallaController.php:35
  * @route '/admin/tallas/{talla}'
  */
         updateForm.patch = (args: { talla: number | { id: number } } | [talla: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -523,7 +523,7 @@ update.patch = (args: { talla: number | { id: number } } | [talla: number | { id
     update.form = updateForm
 /**
 * @see \App\Http\Controllers\TallaController::destroy
- * @see app/Http/Controllers/TallaController.php:40
+ * @see app/Http/Controllers/TallaController.php:48
  * @route '/admin/tallas/{talla}'
  */
 export const destroy = (args: { talla: number | { id: number } } | [talla: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -538,7 +538,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\TallaController::destroy
- * @see app/Http/Controllers/TallaController.php:40
+ * @see app/Http/Controllers/TallaController.php:48
  * @route '/admin/tallas/{talla}'
  */
 destroy.url = (args: { talla: number | { id: number } } | [talla: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -571,7 +571,7 @@ destroy.url = (args: { talla: number | { id: number } } | [talla: number | { id:
 
 /**
 * @see \App\Http\Controllers\TallaController::destroy
- * @see app/Http/Controllers/TallaController.php:40
+ * @see app/Http/Controllers/TallaController.php:48
  * @route '/admin/tallas/{talla}'
  */
 destroy.delete = (args: { talla: number | { id: number } } | [talla: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -581,7 +581,7 @@ destroy.delete = (args: { talla: number | { id: number } } | [talla: number | { 
 
     /**
 * @see \App\Http\Controllers\TallaController::destroy
- * @see app/Http/Controllers/TallaController.php:40
+ * @see app/Http/Controllers/TallaController.php:48
  * @route '/admin/tallas/{talla}'
  */
     const destroyForm = (args: { talla: number | { id: number } } | [talla: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -596,7 +596,7 @@ destroy.delete = (args: { talla: number | { id: number } } | [talla: number | { 
 
             /**
 * @see \App\Http\Controllers\TallaController::destroy
- * @see app/Http/Controllers/TallaController.php:40
+ * @see app/Http/Controllers/TallaController.php:48
  * @route '/admin/tallas/{talla}'
  */
         destroyForm.delete = (args: { talla: number | { id: number } } | [talla: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

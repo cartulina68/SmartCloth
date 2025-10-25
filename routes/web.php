@@ -41,10 +41,18 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->group(function () {
     Route::put('categorias/{categoria}', [CategoriaController::class, 'update'])->name('categorias.update');
     Route::delete('categorias/{categoria}', [CategoriaController::class, 'destroy'])->name('categorias.destroy');
 
+    // Colores CRUD
+    Route::get('colores', [ColorController::class, 'index'])->name('colores.index');
+    Route::post('colores', [ColorController::class, 'store'])->name('colores.store');
+    Route::get('colores/{color}', [ColorController::class, 'show'])->name('colores.show');
+    Route::put('colores/{color}', [ColorController::class, 'update'])->name('colores.update');
+    Route::delete('colores/{color}', [ColorController::class, 'destroy'])->name('colores.destroy');
+
+
     // Otros CRUDs
     Route::resource('roles', RoleController::class);
     Route::resource('generos', GeneroController::class);
-    Route::resource('colores', ColorController::class);
+    // Route::resource('colores', ColorController::class);
     Route::resource('tallas', TallaController::class);
     Route::resource('imagenes', ImagenController::class);
     Route::resource('users', UserController::class);

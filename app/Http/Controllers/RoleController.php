@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Role;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class RoleController extends Controller
 {
     public function index()
     {
-        return response()->json(Role::all());
+        $roles = Role::all();
+        return Inertia::render('roles/index', ['roles' => $roles]);
     }
 
     public function store(Request $request)
@@ -17,11 +19,13 @@ class RoleController extends Controller
         $validated = $request->validate([
             'name' => 'required|string|max:50',
         ]);
-        $role = Role::create([
+
+        Role::create([
             'name' => $validated['name'],
             'guard_name' => 'web',
         ]);
-        return response()->json($role, 201);
+
+        return redirect()->intended(route('roles.index', absolute: false));
     }
 
     public function show(Role $role)
@@ -34,9 +38,11 @@ class RoleController extends Controller
         $validated = $request->validate([
             'name' => 'required|string|max:50',
         ]);
+
         $role->update([
             'name' => $validated['name'],
         ]);
+
         return response()->json($role);
     }
 

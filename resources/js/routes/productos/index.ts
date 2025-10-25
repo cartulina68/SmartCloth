@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../wayfinder'
 /**
 * @see \App\Http\Controllers\ProductoController::index
- * @see app/Http/Controllers/ProductoController.php:10
+ * @see app/Http/Controllers/ProductoController.php:13
  * @route '/admin/productos'
  */
 export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ index.definition = {
 
 /**
 * @see \App\Http\Controllers\ProductoController::index
- * @see app/Http/Controllers/ProductoController.php:10
+ * @see app/Http/Controllers/ProductoController.php:13
  * @route '/admin/productos'
  */
 index.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ index.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\ProductoController::index
- * @see app/Http/Controllers/ProductoController.php:10
+ * @see app/Http/Controllers/ProductoController.php:13
  * @route '/admin/productos'
  */
 index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -34,7 +34,7 @@ index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Http\Controllers\ProductoController::index
- * @see app/Http/Controllers/ProductoController.php:10
+ * @see app/Http/Controllers/ProductoController.php:13
  * @route '/admin/productos'
  */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -44,7 +44,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Http\Controllers\ProductoController::index
- * @see app/Http/Controllers/ProductoController.php:10
+ * @see app/Http/Controllers/ProductoController.php:13
  * @route '/admin/productos'
  */
     const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -54,7 +54,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Http\Controllers\ProductoController::index
- * @see app/Http/Controllers/ProductoController.php:10
+ * @see app/Http/Controllers/ProductoController.php:13
  * @route '/admin/productos'
  */
         indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -63,7 +63,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Http\Controllers\ProductoController::index
- * @see app/Http/Controllers/ProductoController.php:10
+ * @see app/Http/Controllers/ProductoController.php:13
  * @route '/admin/productos'
  */
         indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -157,7 +157,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     create.form = createForm
 /**
 * @see \App\Http\Controllers\ProductoController::store
- * @see app/Http/Controllers/ProductoController.php:15
+ * @see app/Http/Controllers/ProductoController.php:26
  * @route '/admin/productos'
  */
 export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -172,7 +172,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\ProductoController::store
- * @see app/Http/Controllers/ProductoController.php:15
+ * @see app/Http/Controllers/ProductoController.php:26
  * @route '/admin/productos'
  */
 store.url = (options?: RouteQueryOptions) => {
@@ -181,7 +181,7 @@ store.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\ProductoController::store
- * @see app/Http/Controllers/ProductoController.php:15
+ * @see app/Http/Controllers/ProductoController.php:26
  * @route '/admin/productos'
  */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -191,7 +191,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
     /**
 * @see \App\Http\Controllers\ProductoController::store
- * @see app/Http/Controllers/ProductoController.php:15
+ * @see app/Http/Controllers/ProductoController.php:26
  * @route '/admin/productos'
  */
     const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -201,7 +201,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
             /**
 * @see \App\Http\Controllers\ProductoController::store
- * @see app/Http/Controllers/ProductoController.php:15
+ * @see app/Http/Controllers/ProductoController.php:26
  * @route '/admin/productos'
  */
         storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -212,10 +212,10 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     store.form = storeForm
 /**
 * @see \App\Http\Controllers\ProductoController::show
- * @see app/Http/Controllers/ProductoController.php:29
+ * @see app/Http/Controllers/ProductoController.php:41
  * @route '/admin/productos/{producto}'
  */
-export const show = (args: { producto: string | number } | [producto: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+export const show = (args: { producto: string | number | { id: string | number } } | [producto: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: show.url(args, options),
     method: 'get',
 })
@@ -227,14 +227,17 @@ show.definition = {
 
 /**
 * @see \App\Http\Controllers\ProductoController::show
- * @see app/Http/Controllers/ProductoController.php:29
+ * @see app/Http/Controllers/ProductoController.php:41
  * @route '/admin/productos/{producto}'
  */
-show.url = (args: { producto: string | number } | [producto: string | number ] | string | number, options?: RouteQueryOptions) => {
+show.url = (args: { producto: string | number | { id: string | number } } | [producto: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { producto: args }
     }
 
+            if (typeof args === 'object' && !Array.isArray(args) && 'id' in args) {
+            args = { producto: args.id }
+        }
     
     if (Array.isArray(args)) {
         args = {
@@ -245,7 +248,9 @@ show.url = (args: { producto: string | number } | [producto: string | number ] |
     args = applyUrlDefaults(args)
 
     const parsedArgs = {
-                        producto: args.producto,
+                        producto: typeof args.producto === 'object'
+                ? args.producto.id
+                : args.producto,
                 }
 
     return show.definition.url
@@ -255,48 +260,48 @@ show.url = (args: { producto: string | number } | [producto: string | number ] |
 
 /**
 * @see \App\Http\Controllers\ProductoController::show
- * @see app/Http/Controllers/ProductoController.php:29
+ * @see app/Http/Controllers/ProductoController.php:41
  * @route '/admin/productos/{producto}'
  */
-show.get = (args: { producto: string | number } | [producto: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+show.get = (args: { producto: string | number | { id: string | number } } | [producto: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: show.url(args, options),
     method: 'get',
 })
 /**
 * @see \App\Http\Controllers\ProductoController::show
- * @see app/Http/Controllers/ProductoController.php:29
+ * @see app/Http/Controllers/ProductoController.php:41
  * @route '/admin/productos/{producto}'
  */
-show.head = (args: { producto: string | number } | [producto: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+show.head = (args: { producto: string | number | { id: string | number } } | [producto: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: show.url(args, options),
     method: 'head',
 })
 
     /**
 * @see \App\Http\Controllers\ProductoController::show
- * @see app/Http/Controllers/ProductoController.php:29
+ * @see app/Http/Controllers/ProductoController.php:41
  * @route '/admin/productos/{producto}'
  */
-    const showForm = (args: { producto: string | number } | [producto: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    const showForm = (args: { producto: string | number | { id: string | number } } | [producto: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
         action: show.url(args, options),
         method: 'get',
     })
 
             /**
 * @see \App\Http\Controllers\ProductoController::show
- * @see app/Http/Controllers/ProductoController.php:29
+ * @see app/Http/Controllers/ProductoController.php:41
  * @route '/admin/productos/{producto}'
  */
-        showForm.get = (args: { producto: string | number } | [producto: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        showForm.get = (args: { producto: string | number | { id: string | number } } | [producto: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: show.url(args, options),
             method: 'get',
         })
             /**
 * @see \App\Http\Controllers\ProductoController::show
- * @see app/Http/Controllers/ProductoController.php:29
+ * @see app/Http/Controllers/ProductoController.php:41
  * @route '/admin/productos/{producto}'
  */
-        showForm.head = (args: { producto: string | number } | [producto: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        showForm.head = (args: { producto: string | number | { id: string | number } } | [producto: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: show.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'HEAD',
@@ -406,10 +411,10 @@ edit.head = (args: { producto: string | number } | [producto: string | number ] 
     edit.form = editForm
 /**
 * @see \App\Http\Controllers\ProductoController::update
- * @see app/Http/Controllers/ProductoController.php:34
+ * @see app/Http/Controllers/ProductoController.php:48
  * @route '/admin/productos/{producto}'
  */
-export const update = (args: { producto: string | number } | [producto: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+export const update = (args: { producto: string | number | { id: string | number } } | [producto: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update.url(args, options),
     method: 'put',
 })
@@ -421,14 +426,17 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\ProductoController::update
- * @see app/Http/Controllers/ProductoController.php:34
+ * @see app/Http/Controllers/ProductoController.php:48
  * @route '/admin/productos/{producto}'
  */
-update.url = (args: { producto: string | number } | [producto: string | number ] | string | number, options?: RouteQueryOptions) => {
+update.url = (args: { producto: string | number | { id: string | number } } | [producto: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { producto: args }
     }
 
+            if (typeof args === 'object' && !Array.isArray(args) && 'id' in args) {
+            args = { producto: args.id }
+        }
     
     if (Array.isArray(args)) {
         args = {
@@ -439,7 +447,9 @@ update.url = (args: { producto: string | number } | [producto: string | number ]
     args = applyUrlDefaults(args)
 
     const parsedArgs = {
-                        producto: args.producto,
+                        producto: typeof args.producto === 'object'
+                ? args.producto.id
+                : args.producto,
                 }
 
     return update.definition.url
@@ -449,29 +459,29 @@ update.url = (args: { producto: string | number } | [producto: string | number ]
 
 /**
 * @see \App\Http\Controllers\ProductoController::update
- * @see app/Http/Controllers/ProductoController.php:34
+ * @see app/Http/Controllers/ProductoController.php:48
  * @route '/admin/productos/{producto}'
  */
-update.put = (args: { producto: string | number } | [producto: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+update.put = (args: { producto: string | number | { id: string | number } } | [producto: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update.url(args, options),
     method: 'put',
 })
 /**
 * @see \App\Http\Controllers\ProductoController::update
- * @see app/Http/Controllers/ProductoController.php:34
+ * @see app/Http/Controllers/ProductoController.php:48
  * @route '/admin/productos/{producto}'
  */
-update.patch = (args: { producto: string | number } | [producto: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+update.patch = (args: { producto: string | number | { id: string | number } } | [producto: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
     url: update.url(args, options),
     method: 'patch',
 })
 
     /**
 * @see \App\Http\Controllers\ProductoController::update
- * @see app/Http/Controllers/ProductoController.php:34
+ * @see app/Http/Controllers/ProductoController.php:48
  * @route '/admin/productos/{producto}'
  */
-    const updateForm = (args: { producto: string | number } | [producto: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const updateForm = (args: { producto: string | number | { id: string | number } } | [producto: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: update.url(args, {
                     [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                         _method: 'PUT',
@@ -483,10 +493,10 @@ update.patch = (args: { producto: string | number } | [producto: string | number
 
             /**
 * @see \App\Http\Controllers\ProductoController::update
- * @see app/Http/Controllers/ProductoController.php:34
+ * @see app/Http/Controllers/ProductoController.php:48
  * @route '/admin/productos/{producto}'
  */
-        updateForm.put = (args: { producto: string | number } | [producto: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        updateForm.put = (args: { producto: string | number | { id: string | number } } | [producto: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: update.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'PUT',
@@ -497,10 +507,10 @@ update.patch = (args: { producto: string | number } | [producto: string | number
         })
             /**
 * @see \App\Http\Controllers\ProductoController::update
- * @see app/Http/Controllers/ProductoController.php:34
+ * @see app/Http/Controllers/ProductoController.php:48
  * @route '/admin/productos/{producto}'
  */
-        updateForm.patch = (args: { producto: string | number } | [producto: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        updateForm.patch = (args: { producto: string | number | { id: string | number } } | [producto: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: update.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'PATCH',
@@ -513,10 +523,10 @@ update.patch = (args: { producto: string | number } | [producto: string | number
     update.form = updateForm
 /**
 * @see \App\Http\Controllers\ProductoController::destroy
- * @see app/Http/Controllers/ProductoController.php:48
+ * @see app/Http/Controllers/ProductoController.php:63
  * @route '/admin/productos/{producto}'
  */
-export const destroy = (args: { producto: string | number } | [producto: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+export const destroy = (args: { producto: string | number | { id: string | number } } | [producto: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy.url(args, options),
     method: 'delete',
 })
@@ -528,14 +538,17 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\ProductoController::destroy
- * @see app/Http/Controllers/ProductoController.php:48
+ * @see app/Http/Controllers/ProductoController.php:63
  * @route '/admin/productos/{producto}'
  */
-destroy.url = (args: { producto: string | number } | [producto: string | number ] | string | number, options?: RouteQueryOptions) => {
+destroy.url = (args: { producto: string | number | { id: string | number } } | [producto: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { producto: args }
     }
 
+            if (typeof args === 'object' && !Array.isArray(args) && 'id' in args) {
+            args = { producto: args.id }
+        }
     
     if (Array.isArray(args)) {
         args = {
@@ -546,7 +559,9 @@ destroy.url = (args: { producto: string | number } | [producto: string | number 
     args = applyUrlDefaults(args)
 
     const parsedArgs = {
-                        producto: args.producto,
+                        producto: typeof args.producto === 'object'
+                ? args.producto.id
+                : args.producto,
                 }
 
     return destroy.definition.url
@@ -556,20 +571,20 @@ destroy.url = (args: { producto: string | number } | [producto: string | number 
 
 /**
 * @see \App\Http\Controllers\ProductoController::destroy
- * @see app/Http/Controllers/ProductoController.php:48
+ * @see app/Http/Controllers/ProductoController.php:63
  * @route '/admin/productos/{producto}'
  */
-destroy.delete = (args: { producto: string | number } | [producto: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+destroy.delete = (args: { producto: string | number | { id: string | number } } | [producto: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy.url(args, options),
     method: 'delete',
 })
 
     /**
 * @see \App\Http\Controllers\ProductoController::destroy
- * @see app/Http/Controllers/ProductoController.php:48
+ * @see app/Http/Controllers/ProductoController.php:63
  * @route '/admin/productos/{producto}'
  */
-    const destroyForm = (args: { producto: string | number } | [producto: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const destroyForm = (args: { producto: string | number | { id: string | number } } | [producto: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: destroy.url(args, {
                     [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                         _method: 'DELETE',
@@ -581,10 +596,10 @@ destroy.delete = (args: { producto: string | number } | [producto: string | numb
 
             /**
 * @see \App\Http\Controllers\ProductoController::destroy
- * @see app/Http/Controllers/ProductoController.php:48
+ * @see app/Http/Controllers/ProductoController.php:63
  * @route '/admin/productos/{producto}'
  */
-        destroyForm.delete = (args: { producto: string | number } | [producto: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        destroyForm.delete = (args: { producto: string | number | { id: string | number } } | [producto: string | number | { id: string | number } ] | string | number | { id: string | number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: destroy.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'DELETE',
