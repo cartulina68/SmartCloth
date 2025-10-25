@@ -12,8 +12,9 @@ import {
 import { dashboard } from '@/routes';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
-import { LayoutGrid } from 'lucide-react';
+import { LayoutGrid, List } from 'lucide-react'; // List será el icono para Categorías
 import AppLogo from './app-logo';
+
 
 const mainNavItems: NavItem[] = [
     {
@@ -21,11 +22,17 @@ const mainNavItems: NavItem[] = [
         href: dashboard(),
         icon: LayoutGrid,
     },
+    {
+        title: 'Categorías',
+        href: '/admin/categorias',
+        icon: List,
+    },
 ];
 
 export function AppSidebar() {
     return (
         <Sidebar collapsible="icon" variant="inset">
+            {/* Header con logo */}
             <SidebarHeader>
                 <SidebarMenu>
                     <SidebarMenuItem>
@@ -38,10 +45,12 @@ export function AppSidebar() {
                 </SidebarMenu>
             </SidebarHeader>
 
+            {/* Contenido principal del sidebar */}
             <SidebarContent>
                 <NavMain items={mainNavItems} />
             </SidebarContent>
 
+            {/* Footer con usuario */}
             <SidebarFooter>
                 <NavUser />
             </SidebarFooter>

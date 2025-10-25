@@ -5,32 +5,57 @@ import { type BreadcrumbItem } from '@/types';
 import { Head } from '@inertiajs/react';
 
 const breadcrumbs: BreadcrumbItem[] = [
-    {
-        title: 'Dashboard',
-        href: dashboard().url,
-    },
+  {
+    title: 'Dashboard',
+    href: dashboard().url,
+  },
 ];
 
 export default function Dashboard() {
-    return (
-        <AppLayout breadcrumbs={breadcrumbs}>
-            <Head title="Dashboard" />
-            <div className="flex h-full flex-1 flex-col gap-4 overflow-x-auto rounded-xl p-4">
-                <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-                    <div className="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
-                        <PlaceholderPattern className="absolute inset-0 size-full stroke-neutral-900/20 dark:stroke-neutral-100/20" />
-                    </div>
-                    <div className="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
-                        <PlaceholderPattern className="absolute inset-0 size-full stroke-neutral-900/20 dark:stroke-neutral-100/20" />
-                    </div>
-                    <div className="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
-                        <PlaceholderPattern className="absolute inset-0 size-full stroke-neutral-900/20 dark:stroke-neutral-100/20" />
-                    </div>
-                </div>
-                <div className="relative min-h-[100vh] flex-1 overflow-hidden rounded-xl border border-sidebar-border/70 md:min-h-min dark:border-sidebar-border">
-                    <PlaceholderPattern className="absolute inset-0 size-full stroke-neutral-900/20 dark:stroke-neutral-100/20" />
-                </div>
+  return (
+    <AppLayout breadcrumbs={breadcrumbs}>
+      <Head title="Dashboard" />
+        {/* Encabezado */}
+        <div className="flex items-center justify-between mb-2">
+          <h1 className="text-2xl font-semibold tracking-wide text-gray-100">
+            Bienvenido al Panel de Control
+          </h1>
+          <span className="text-sm text-gray-500">
+            Smart<span className="text-red-500 font-semibold">Cloth</span>
+          </span>
+        </div>
+
+        {/* Tarjetas resumen */}
+        <div className="grid auto-rows-min gap-6 md:grid-cols-3">
+          <div className="relative aspect-video overflow-hidden rounded-xl border border-gray-800 bg-[#1e1e1e] shadow-md hover:shadow-red-900/10 transition-all duration-200">
+            <PlaceholderPattern className="absolute inset-0 size-full stroke-neutral-700/20" />
+            <div className="absolute bottom-4 left-4 text-gray-300 font-medium">
+              Ventas del mes
             </div>
-        </AppLayout>
-    );
+          </div>
+
+          <div className="relative aspect-video overflow-hidden rounded-xl border border-gray-800 bg-[#1e1e1e] shadow-md hover:shadow-red-900/10 transition-all duration-200">
+            <PlaceholderPattern className="absolute inset-0 size-full stroke-neutral-700/20" />
+            <div className="absolute bottom-4 left-4 text-gray-300 font-medium">
+              Nuevos usuarios
+            </div>
+          </div>
+
+          <div className="relative aspect-video overflow-hidden rounded-xl border border-gray-800 bg-[#1e1e1e] shadow-md hover:shadow-red-900/10 transition-all duration-200">
+            <PlaceholderPattern className="absolute inset-0 size-full stroke-neutral-700/20" />
+            <div className="absolute bottom-4 left-4 text-gray-300 font-medium">
+              Productos activos
+            </div>
+          </div>
+        </div>
+
+        {/* Sección inferior */}
+        <div className="relative min-h-[100vh] flex-1 overflow-hidden rounded-xl border border-gray-800 bg-[#1a1a1a] shadow-inner">
+          <PlaceholderPattern className="absolute inset-0 size-full stroke-neutral-800/20" />
+          <div className="absolute inset-0 flex items-center justify-center text-gray-500 text-sm">
+            Aquí podrás ver estadísticas o reportes
+          </div>
+        </div>
+    </AppLayout>
+  );
 }

@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Categoria;
+use App\Models\Categorias;
 use Illuminate\Http\Request;
 
 class CategoriaController extends Controller
 {
     public function index()
     {
-        return response()->json(Categoria::all());
+        return response()->json(Categorias::all());
     }
 
     public function store(Request $request)
@@ -19,16 +19,16 @@ class CategoriaController extends Controller
             'descripcion' => 'nullable|string',
         ]);
 
-        $categoria = Categoria::create($validated);
+        $categoria = Categorias::create($validated);
         return response()->json($categoria, 201);
     }
 
-    public function show(Categoria $categoria)
+    public function show(Categorias $categoria)
     {
         return response()->json($categoria);
     }
 
-    public function update(Request $request, Categoria $categoria)
+    public function update(Request $request, Categorias $categoria)
     {
         $validated = $request->validate([
             'nombre' => 'required|string|max:100',
@@ -39,7 +39,7 @@ class CategoriaController extends Controller
         return response()->json($categoria);
     }
 
-    public function destroy(Categoria $categoria)
+    public function destroy(Categorias $categoria)
     {
         $categoria->delete();
         return response()->json(null, 204);

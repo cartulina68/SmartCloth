@@ -10,8 +10,8 @@ class UserController extends Controller
 {
     public function index()
     {
-        // Incluye el rol del usuario
-        return response()->json(User::with('rol')->get());
+        // Include package roles relationship
+        return response()->json(User::with('roles')->get());
     }
 
     public function store(Request $request)
@@ -28,12 +28,12 @@ class UserController extends Controller
         $validated['password'] = Hash::make($validated['password']);
 
         $user = User::create($validated);
-        return response()->json($user->load('rol'), 201);
+        return response()->json($user->load('roles'), 201);
     }
 
     public function show(User $user)
     {
-        return response()->json($user->load('rol'));
+        return response()->json($user->load('roles'));
     }
 
     public function update(Request $request, User $user)
@@ -52,7 +52,7 @@ class UserController extends Controller
         }
 
         $user->update($validated);
-        return response()->json($user->load('rol'));
+        return response()->json($user->load('roles'));
     }
 
     public function destroy(User $user)

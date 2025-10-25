@@ -14,6 +14,7 @@ use Database\Seeders\CategoriasSeeder;
 use Database\Seeders\ProductosSeeder;
 use Database\Seeders\ImagenesSeeder;
 use Database\Seeders\ProductsVariantesSeeder;
+use Database\Seeders\UsersSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,19 +23,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Crear usuario de prueba
-        User::firstOrCreate(
-            ['email' => 'test@example.com'],
-            [
-                'name' => 'Test User',
-                'password' => Hash::make('password'),
-                'email_verified_at' => now(),
-            ]
-        );
-
-        // Ejecutar los demás seeders
+        // Ejecutar los demás seeders (create roles before users so assignments work)
         $this->call([
             RolesSeeder::class,
+            UsersSeeder::class,
             GenerosSeeder::class,
             ColoresSeeder::class,
             TallasSeeder::class,
