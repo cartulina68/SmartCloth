@@ -215,7 +215,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
  * @see app/Http/Controllers/GeneroController.php:28
  * @route '/admin/generos/{genero}'
  */
-export const show = (args: { genero: string | number } | [genero: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+export const show = (args: { genero: number | { id: number } } | [genero: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: show.url(args, options),
     method: 'get',
 })
@@ -230,11 +230,14 @@ show.definition = {
  * @see app/Http/Controllers/GeneroController.php:28
  * @route '/admin/generos/{genero}'
  */
-show.url = (args: { genero: string | number } | [genero: string | number ] | string | number, options?: RouteQueryOptions) => {
+show.url = (args: { genero: number | { id: number } } | [genero: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { genero: args }
     }
 
+            if (typeof args === 'object' && !Array.isArray(args) && 'id' in args) {
+            args = { genero: args.id }
+        }
     
     if (Array.isArray(args)) {
         args = {
@@ -245,7 +248,9 @@ show.url = (args: { genero: string | number } | [genero: string | number ] | str
     args = applyUrlDefaults(args)
 
     const parsedArgs = {
-                        genero: args.genero,
+                        genero: typeof args.genero === 'object'
+                ? args.genero.id
+                : args.genero,
                 }
 
     return show.definition.url
@@ -258,7 +263,7 @@ show.url = (args: { genero: string | number } | [genero: string | number ] | str
  * @see app/Http/Controllers/GeneroController.php:28
  * @route '/admin/generos/{genero}'
  */
-show.get = (args: { genero: string | number } | [genero: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+show.get = (args: { genero: number | { id: number } } | [genero: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     url: show.url(args, options),
     method: 'get',
 })
@@ -267,7 +272,7 @@ show.get = (args: { genero: string | number } | [genero: string | number ] | str
  * @see app/Http/Controllers/GeneroController.php:28
  * @route '/admin/generos/{genero}'
  */
-show.head = (args: { genero: string | number } | [genero: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+show.head = (args: { genero: number | { id: number } } | [genero: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     url: show.url(args, options),
     method: 'head',
 })
@@ -277,7 +282,7 @@ show.head = (args: { genero: string | number } | [genero: string | number ] | st
  * @see app/Http/Controllers/GeneroController.php:28
  * @route '/admin/generos/{genero}'
  */
-    const showForm = (args: { genero: string | number } | [genero: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+    const showForm = (args: { genero: number | { id: number } } | [genero: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
         action: show.url(args, options),
         method: 'get',
     })
@@ -287,7 +292,7 @@ show.head = (args: { genero: string | number } | [genero: string | number ] | st
  * @see app/Http/Controllers/GeneroController.php:28
  * @route '/admin/generos/{genero}'
  */
-        showForm.get = (args: { genero: string | number } | [genero: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        showForm.get = (args: { genero: number | { id: number } } | [genero: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: show.url(args, options),
             method: 'get',
         })
@@ -296,7 +301,7 @@ show.head = (args: { genero: string | number } | [genero: string | number ] | st
  * @see app/Http/Controllers/GeneroController.php:28
  * @route '/admin/generos/{genero}'
  */
-        showForm.head = (args: { genero: string | number } | [genero: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        showForm.head = (args: { genero: number | { id: number } } | [genero: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
             action: show.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'HEAD',
@@ -409,7 +414,7 @@ edit.head = (args: { genero: string | number } | [genero: string | number ] | st
  * @see app/Http/Controllers/GeneroController.php:33
  * @route '/admin/generos/{genero}'
  */
-export const update = (args: { genero: string | number } | [genero: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+export const update = (args: { genero: number | { id: number } } | [genero: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update.url(args, options),
     method: 'put',
 })
@@ -424,11 +429,14 @@ update.definition = {
  * @see app/Http/Controllers/GeneroController.php:33
  * @route '/admin/generos/{genero}'
  */
-update.url = (args: { genero: string | number } | [genero: string | number ] | string | number, options?: RouteQueryOptions) => {
+update.url = (args: { genero: number | { id: number } } | [genero: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { genero: args }
     }
 
+            if (typeof args === 'object' && !Array.isArray(args) && 'id' in args) {
+            args = { genero: args.id }
+        }
     
     if (Array.isArray(args)) {
         args = {
@@ -439,7 +447,9 @@ update.url = (args: { genero: string | number } | [genero: string | number ] | s
     args = applyUrlDefaults(args)
 
     const parsedArgs = {
-                        genero: args.genero,
+                        genero: typeof args.genero === 'object'
+                ? args.genero.id
+                : args.genero,
                 }
 
     return update.definition.url
@@ -452,7 +462,7 @@ update.url = (args: { genero: string | number } | [genero: string | number ] | s
  * @see app/Http/Controllers/GeneroController.php:33
  * @route '/admin/generos/{genero}'
  */
-update.put = (args: { genero: string | number } | [genero: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+update.put = (args: { genero: number | { id: number } } | [genero: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
     url: update.url(args, options),
     method: 'put',
 })
@@ -461,7 +471,7 @@ update.put = (args: { genero: string | number } | [genero: string | number ] | s
  * @see app/Http/Controllers/GeneroController.php:33
  * @route '/admin/generos/{genero}'
  */
-update.patch = (args: { genero: string | number } | [genero: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
+update.patch = (args: { genero: number | { id: number } } | [genero: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
     url: update.url(args, options),
     method: 'patch',
 })
@@ -471,7 +481,7 @@ update.patch = (args: { genero: string | number } | [genero: string | number ] |
  * @see app/Http/Controllers/GeneroController.php:33
  * @route '/admin/generos/{genero}'
  */
-    const updateForm = (args: { genero: string | number } | [genero: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const updateForm = (args: { genero: number | { id: number } } | [genero: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: update.url(args, {
                     [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                         _method: 'PUT',
@@ -486,7 +496,7 @@ update.patch = (args: { genero: string | number } | [genero: string | number ] |
  * @see app/Http/Controllers/GeneroController.php:33
  * @route '/admin/generos/{genero}'
  */
-        updateForm.put = (args: { genero: string | number } | [genero: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        updateForm.put = (args: { genero: number | { id: number } } | [genero: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: update.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'PUT',
@@ -500,7 +510,7 @@ update.patch = (args: { genero: string | number } | [genero: string | number ] |
  * @see app/Http/Controllers/GeneroController.php:33
  * @route '/admin/generos/{genero}'
  */
-        updateForm.patch = (args: { genero: string | number } | [genero: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        updateForm.patch = (args: { genero: number | { id: number } } | [genero: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: update.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'PATCH',
@@ -516,7 +526,7 @@ update.patch = (args: { genero: string | number } | [genero: string | number ] |
  * @see app/Http/Controllers/GeneroController.php:43
  * @route '/admin/generos/{genero}'
  */
-export const destroy = (args: { genero: string | number } | [genero: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+export const destroy = (args: { genero: number | { id: number } } | [genero: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy.url(args, options),
     method: 'delete',
 })
@@ -531,11 +541,14 @@ destroy.definition = {
  * @see app/Http/Controllers/GeneroController.php:43
  * @route '/admin/generos/{genero}'
  */
-destroy.url = (args: { genero: string | number } | [genero: string | number ] | string | number, options?: RouteQueryOptions) => {
+destroy.url = (args: { genero: number | { id: number } } | [genero: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
     if (typeof args === 'string' || typeof args === 'number') {
         args = { genero: args }
     }
 
+            if (typeof args === 'object' && !Array.isArray(args) && 'id' in args) {
+            args = { genero: args.id }
+        }
     
     if (Array.isArray(args)) {
         args = {
@@ -546,7 +559,9 @@ destroy.url = (args: { genero: string | number } | [genero: string | number ] | 
     args = applyUrlDefaults(args)
 
     const parsedArgs = {
-                        genero: args.genero,
+                        genero: typeof args.genero === 'object'
+                ? args.genero.id
+                : args.genero,
                 }
 
     return destroy.definition.url
@@ -559,7 +574,7 @@ destroy.url = (args: { genero: string | number } | [genero: string | number ] | 
  * @see app/Http/Controllers/GeneroController.php:43
  * @route '/admin/generos/{genero}'
  */
-destroy.delete = (args: { genero: string | number } | [genero: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+destroy.delete = (args: { genero: number | { id: number } } | [genero: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
     url: destroy.url(args, options),
     method: 'delete',
 })
@@ -569,7 +584,7 @@ destroy.delete = (args: { genero: string | number } | [genero: string | number ]
  * @see app/Http/Controllers/GeneroController.php:43
  * @route '/admin/generos/{genero}'
  */
-    const destroyForm = (args: { genero: string | number } | [genero: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+    const destroyForm = (args: { genero: number | { id: number } } | [genero: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
         action: destroy.url(args, {
                     [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                         _method: 'DELETE',
@@ -584,7 +599,7 @@ destroy.delete = (args: { genero: string | number } | [genero: string | number ]
  * @see app/Http/Controllers/GeneroController.php:43
  * @route '/admin/generos/{genero}'
  */
-        destroyForm.delete = (args: { genero: string | number } | [genero: string | number ] | string | number, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        destroyForm.delete = (args: { genero: number | { id: number } } | [genero: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
             action: destroy.url(args, {
                         [options?.mergeQuery ? 'mergeQuery' : 'query']: {
                             _method: 'DELETE',

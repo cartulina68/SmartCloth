@@ -21,8 +21,6 @@ class CategoriaController extends Controller
             'descripcion' => 'nullable|string',
         ]);
 
-        $categoria = Categorias::create($validated);
-
         return redirect()->intended(route('categorias.index', absolute: false));
     }
 
@@ -37,14 +35,14 @@ class CategoriaController extends Controller
             'nombre' => 'required|string|max:100',
             'descripcion' => 'nullable|string',
         ]);
-
         $categoria->update($validated);
-        return response()->json($categoria);
+
+        return redirect()->intended(route('categorias.index', absolute: false));
     }
 
     public function destroy(Categorias $categoria)
     {
         $categoria->delete();
-        return response()->json(null, 204);
+        return redirect()->intended(route('categorias.index', absolute: false));
     }
 }

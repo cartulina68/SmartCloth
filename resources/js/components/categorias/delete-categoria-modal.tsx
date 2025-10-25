@@ -2,29 +2,35 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter, DialogC
 import { Button } from '@/components/ui/button'
 import { Form } from '@inertiajs/react'
 import CategoriaController from '@/actions/App/Http/Controllers/CategoriaController'
-import InputError from '@/components/input-error'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { Textarea } from '@/components/ui/textarea'
 
-export default function CreateCategoriaModal({
+type Categoria = {
+  id: number
+  nombre: string
+  descripcion?: string
+}
+
+export default function DeleteCategoriaModal({
   open,
   onOpenChange,
+  categoria,
   onSaved,
 }: {
   open: boolean
   onOpenChange: (open: boolean) => void
+  categoria?: Categoria | null
   onSaved?: () => void
 }) {
+  if (!categoria) return null
+
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-2xl">
+      <DialogContent className="sm:max-w-m">
         <DialogHeader className="flex items-center justify-between">
-          <DialogTitle>Nueva Categoría</DialogTitle>
+          <DialogTitle>Eliminar Categoría</DialogTitle>
         </DialogHeader>
 
         <Form
-          {...CategoriaController.store.form()}
+          {...CategoriaController.destroy.form(categoria.id)}
           options={{ preserveScroll: true }}
           onSuccess={() => {
             onOpenChange(false)
@@ -32,19 +38,11 @@ export default function CreateCategoriaModal({
           }}
           className="space-y-4"
         >
-          {({ processing, errors }: { processing: boolean; errors?: Record<string, string | string[] | undefined> }) => (
+          {({ processing }: { processing: boolean }) => (
             <>
               <div className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="nombre">Nombre</Label>
-                  <Input id="nombre" name="nombre" required maxLength={100} />
-                  <InputError message={errors?.nombre as string | undefined} />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="descripcion">Descripción</Label>
-                  <Textarea id="descripcion" name="descripcion" rows={4} />
-                  <InputError message={errors?.descripcion as string | undefined} />
+                  ¿Estás seguro que deseas eliminar la categoría <strong>"{categoria.nombre}"</strong>?
                 </div>
               </div>
 
@@ -53,8 +51,8 @@ export default function CreateCategoriaModal({
                   <Button variant="outline">Cancelar</Button>
                 </DialogClose>
 
-                <Button type="submit" disabled={processing}>
-                  Guardar
+                <Button variant="destructive" type="submit" disabled={processing}>
+                  Eliminar
                 </Button>
               </DialogFooter>
             </>

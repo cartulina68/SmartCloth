@@ -31,9 +31,6 @@ export default function EditCategoriaModal({
       <DialogContent className="sm:max-w-2xl">
         <DialogHeader className="flex items-center justify-between">
           <DialogTitle>Editar Categoría</DialogTitle>
-          <DialogClose asChild>
-            <Button variant="ghost">Cerrar</Button>
-          </DialogClose>
         </DialogHeader>
 
         <Form
