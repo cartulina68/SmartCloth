@@ -24,12 +24,7 @@ class TallaController extends Controller
 
         Talla::create($validated);
 
-        return redirect()->route('tallas.index');
-    }
-
-    public function show(Talla $talla)
-    {
-        return response()->json($talla);
+        return redirect()->intended(route('tallas.index', absolute: false));
     }
 
     public function update(Request $request, Talla $talla)
@@ -39,10 +34,9 @@ class TallaController extends Controller
             'nombre' => 'required|string|max:50',
             'orden' => 'nullable|integer',
         ]);
-
         $talla->update($validated);
 
-        return response()->json($talla);
+        return redirect()->intended(route('tallas.index', absolute: false));
     }
 
     public function destroy(Talla $talla)

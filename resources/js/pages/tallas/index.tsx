@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { Head } from '@inertiajs/react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { route } from 'ziggy-js'
 import CreateTallaModal from '@/components/tallas/create-talla-modal'
 import EditTallaModal from '@/components/tallas/edit-talla-modal'
 import AppLayout from '@/layouts/app-layout'
@@ -29,15 +28,15 @@ export default function TallaIndex({ tallas }: Props) {
   }
 
   async function openEdit(id: number) {
-    try {
-      const url = route('tallas.show', id)
-      const res = await fetch(url)
-      const data = await res.json()
-      setEditing(data)
-      setEditOpen(true)
-    } catch (e) {
-      console.error(e)
+    const talla = tallas.find(talla => talla.id === id)
+
+    if (!talla) {
+      console.error('Talla no encontrada')
+      return
     }
+
+    setEditing(talla)
+    setEditOpen(true)
   }
 
   return (
