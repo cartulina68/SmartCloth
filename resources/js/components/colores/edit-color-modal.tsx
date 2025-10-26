@@ -1,94 +1,138 @@
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter, DialogClose } from '@/components/ui/dialog'
-import { Button } from '@/components/ui/button'
-import { Form } from '@inertiajs/react'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import InputError from '@/components/input-error'
-import ColorController from '@/actions/App/Http/Controllers/ColorController'
-import { HexColorPicker } from 'react-colorful'
-import { useEffect, useState } from 'react'
+import ColorController from '@/actions/App/Http/Controllers/ColorController';
+import InputError from '@/components/input-error';
+import { Button } from '@/components/ui/button';
+import {
+    Dialog,
+    DialogClose,
+    DialogContent,
+    DialogFooter,
+    DialogHeader,
+    DialogTitle,
+} from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Form } from '@inertiajs/react';
+import { useEffect, useState } from 'react';
+import { HexColorPicker } from 'react-colorful';
 
 type Color = {
-  id?: number
-  nombre: string
-  codigo_hex: string
-}
+    id?: number;
+    nombre: string;
+    codigo_hex: string;
+};
 
 export default function EditColorModal({
-  open,
-  onOpenChange,
-  color,
-  onSaved,
+    open,
+    onOpenChange,
+    color,
+    onSaved,
 }: {
-  open: boolean
-  onOpenChange: (open: boolean) => void
-  color?: Color | null
-  onSaved?: () => void
+    open: boolean;
+    onOpenChange: (open: boolean) => void;
+    color?: Color | null;
+    onSaved?: () => void;
 }) {
-  console.log('Editing color:', color);
-  const [colorValue, setColorValue] = useState('');
+    console.log('Editing color:', color);
+    const [colorValue, setColorValue] = useState('');
 
-  useEffect(() => {
-    if (color?.codigo_hex) {
-      setColorValue(color.codigo_hex);
-    }
-  }, [color]);
+    useEffect(() => {
+        if (color?.codigo_hex) {
+            setColorValue(color.codigo_hex);
+        }
+    }, [color]);
 
-  return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-2xl">
-        <DialogHeader className="flex items-center justify-between">
-          <DialogTitle>Editar Color</DialogTitle>
-        </DialogHeader>
+    return (
+        <Dialog open={open} onOpenChange={onOpenChange}>
+            <DialogContent className="sm:max-w-2xl">
+                <DialogHeader className="flex items-center justify-between">
+                    <DialogTitle>Editar Color</DialogTitle>
+                </DialogHeader>
 
-        {color?.id && (
-          <Form
-            {...ColorController.update.form(color.id)}
-            options={{ preserveScroll: true }}
-            onSuccess={() => {
-              onOpenChange(false)
-              onSaved?.()
-            }}
-            className="space-y-4"
-          >
-            {({ processing, errors }: { processing: boolean; errors?: Record<string, string | string[] | undefined> }) => (
-              <>
-                <div className="space-y-4">
-                  {/* Campo: nombre */}
-                  <div className="space-y-2">
-                    <Label htmlFor="nombre">Nombre del color</Label>
-                    <Input
-                      id="nombre"
-                      name="nombre"
-                      defaultValue={color.nombre ?? ''}
-                      required
-                      maxLength={50}
-                    />
-                    <InputError message={errors?.nombre as string | undefined} />
-                  </div>
+                {color?.id && (
+                    <Form
+                        {...ColorController.update.form(color.id)}
+                        options={{ preserveScroll: true }}
+                        onSuccess={() => {
+                            onOpenChange(false);
+                            onSaved?.();
+                        }}
+                        className="space-y-4"
+                    >
+                        {({
+                            processing,
+                            errors,
+                        }: {
+                            processing: boolean;
+                            errors?: Record<
+                                string,
+                                string | string[] | undefined
+                            >;
+                        }) => (
+                            <>
+                                <div className="space-y-4">
+                                    {/* Campo: nombre */}
+                                    <div className="space-y-2">
+                                        <Label htmlFor="nombre">
+                                            Nombre del color
+                                        </Label>
+                                        <Input
+                                            id="nombre"
+                                            name="nombre"
+                                            defaultValue={color.nombre ?? ''}
+                                            required
+                                            maxLength={50}
+                                        />
+                                        <InputError
+                                            message={
+                                                errors?.nombre as
+                                                    | string
+                                                    | undefined
+                                            }
+                                        />
+                                    </div>
 
-                  {/* Campo: código HEX */}
-                  <div className="space-y-2">
-                    <Label htmlFor="codigo_hex">Código HEX</Label>
-                    <input id="codigo_hex" name="codigo_hex" value={colorValue} type='hide' readOnly />
-                    <HexColorPicker className="mt-3" color={colorValue} onChange={setColorValue} />
-                    <InputError message={errors?.codigo_hex as string | undefined} />
-                  </div>
-                </div>
+                                    {/* Campo: código HEX */}
+                                    <div className="space-y-2">
+                                        <Label htmlFor="codigo_hex">
+                                            Código HEX
+                                        </Label>
+                                        <input
+                                            id="codigo_hex"
+                                            name="codigo_hex"
+                                            value={colorValue}
+                                            type="hide"
+                                            readOnly
+                                        />
+                                        <HexColorPicker
+                                            className="mt-3"
+                                            color={colorValue}
+                                            onChange={setColorValue}
+                                        />
+                                        <InputError
+                                            message={
+                                                errors?.codigo_hex as
+                                                    | string
+                                                    | undefined
+                                            }
+                                        />
+                                    </div>
+                                </div>
 
-                <DialogFooter className="gap-2 mt-4">
-                  <DialogClose asChild>
-                    <Button variant="outline">Cancelar</Button>
-                  </DialogClose>
-                  <Button type="submit" disabled={processing}>
-                    Actualizar
-                  </Button>
-                </DialogFooter>
-              </>
-            )}
-          </Form>
-        )}
-      </DialogContent>
-    </Dialog>
-  )
+                                <DialogFooter className="mt-4 gap-2">
+                                    <DialogClose asChild>
+                                        <Button variant="outline">
+                                            Cancelar
+                                        </Button>
+                                    </DialogClose>
+                                    <Button type="submit" disabled={processing}>
+                                        Actualizar
+                                    </Button>
+                                </DialogFooter>
+                            </>
+                        )}
+                    </Form>
+                )}
+            </DialogContent>
+        </Dialog>
+    );
 }

@@ -13,7 +13,7 @@ import {
 import { dashboard } from '@/routes';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
-import { LayoutGrid, List, Palette, Type, Box } from 'lucide-react'; // Box será el icono para Productos
+import { Box, LayoutGrid, List, Palette, Type } from 'lucide-react'; // Box será el icono para Productos
 import AppLogo from './app-logo';
 
 const mainNavItems: NavItem[] = [

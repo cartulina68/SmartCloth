@@ -53,10 +53,10 @@ export default function TwoFactor({
                         <div className="flex flex-col items-start justify-start space-y-4">
                             <Badge variant="default">Habilitado</Badge>
                             <p className="text-muted-foreground">
-                                Con la autenticación de dos factores habilitada, se
-                                te pedirá un PIN seguro y aleatorio al iniciar
-                                sesión, que puedes obtener desde la aplicación
-                                autenticadora (TOTP) en tu teléfono.
+                                Con la autenticación de dos factores habilitada,
+                                se te pedirá un PIN seguro y aleatorio al
+                                iniciar sesión, que puedes obtener desde la
+                                aplicación autenticadora (TOTP) en tu teléfono.
                             </p>
 
                             <TwoFactorRecoveryCodes
@@ -68,13 +68,13 @@ export default function TwoFactor({
                             <div className="relative inline">
                                 <Form {...disable.form()}>
                                     {({ processing }) => (
-                                                <Button
-                                                    variant="destructive"
-                                                    type="submit"
-                                                    disabled={processing}
-                                                >
-                                                    <ShieldBan /> Deshabilitar 2FA
-                                                </Button>
+                                        <Button
+                                            variant="destructive"
+                                            type="submit"
+                                            disabled={processing}
+                                        >
+                                            <ShieldBan /> Deshabilitar 2FA
+                                        </Button>
                                     )}
                                 </Form>
                             </div>
@@ -83,10 +83,10 @@ export default function TwoFactor({
                         <div className="flex flex-col items-start justify-start space-y-4">
                             <Badge variant="destructive">Deshabilitado</Badge>
                             <p className="text-muted-foreground">
-                                Cuando habilites la autenticación de dos factores,
-                                se te pedirá un PIN seguro al iniciar sesión. Este
-                                PIN puede obtenerse desde una aplicación
-                                autenticadora (TOTP) en tu teléfono.
+                                Cuando habilites la autenticación de dos
+                                factores, se te pedirá un PIN seguro al iniciar
+                                sesión. Este PIN puede obtenerse desde una
+                                aplicación autenticadora (TOTP) en tu teléfono.
                             </p>
 
                             <div>
@@ -105,13 +105,13 @@ export default function TwoFactor({
                                         }
                                     >
                                         {({ processing }) => (
-                                                <Button
-                                                    type="submit"
-                                                    disabled={processing}
-                                                >
-                                                    <ShieldCheck />
-                                                    Habilitar 2FA
-                                                </Button>
+                                            <Button
+                                                type="submit"
+                                                disabled={processing}
+                                            >
+                                                <ShieldCheck />
+                                                Habilitar 2FA
+                                            </Button>
                                         )}
                                     </Form>
                                 )}
