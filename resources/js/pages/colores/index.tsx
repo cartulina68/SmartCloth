@@ -2,10 +2,9 @@ import { useState } from 'react'
 import { Head } from '@inertiajs/react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-// import { route } from 'ziggy-js'
 import AppLayout from '@/layouts/app-layout'
 import CreateColorModal from '@/components/colores/create-color-modal'
-// import EditColorModal from '@/components/colores/edit-color-modal'
+import EditColorModal from '@/components/colores/edit-color-modal'
 
 type Color = {
   id: number
@@ -18,26 +17,25 @@ interface Props {
 }
 
 export default function ColoresIndex({ colores }: Props) {
+  const [editOpen, setEditOpen] = useState(false)
   const [createOpen, setCreateOpen] = useState(false)
-  // const [editOpen, setEditOpen] = useState(false)
-  // const [editing, setEditing] = useState<Color | null>(null)
+  const [editing, setEditing] = useState<Color | null>(null)
 
   function openCreate() {
-    // setEditing(null)
     setCreateOpen(true)
   }
 
-  // async function openEdit(id: number) {
-  //   try {
-  //     const url = route('colores.show', id)
-  //     const res = await fetch(url)
-  //     const data = await res.json()
-  //     setEditing(data)
-  //     setEditOpen(true)
-  //   } catch (e) {
-  //     console.error(e)
-  //   }
-  // }
+  function openEdit(id: number) {
+    const color = colores.find(color => color.id === id)
+
+    if (!color) {
+      console.error('Categoría no encontrada')
+      return
+    }
+
+    setEditing(color)
+    setEditOpen(true)
+  }
 
   return (
     <AppLayout>
@@ -78,7 +76,7 @@ export default function ColoresIndex({ colores }: Props) {
                         <Button
                           size="sm"
                           variant="outline"
-                          // onClick={() => openEdit(col.id)}
+                          onClick={() => openEdit(col.id)}
                         >
                           Editar
                         </Button>
@@ -97,11 +95,11 @@ export default function ColoresIndex({ colores }: Props) {
         onOpenChange={(open) => setCreateOpen(open)}
       />
 
-      {/* <EditColorModal
+      <EditColorModal
         open={editOpen}
         onOpenChange={(open) => setEditOpen(open)}
         color={editing ?? undefined}
-      /> */}
+      />
     </AppLayout>
   )
 }

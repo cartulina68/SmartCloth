@@ -5,6 +5,8 @@ import ColorController from '@/actions/App/Http/Controllers/ColorController'
 import InputError from '@/components/input-error'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { HexColorPicker } from "react-colorful";
+import { useState } from 'react'
 
 export default function CreateColorModal({
   open,
@@ -15,14 +17,13 @@ export default function CreateColorModal({
   onOpenChange: (open: boolean) => void
   onSaved?: () => void
 }) {
+  const [colorValue, setColorValue] = useState("");
+
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-2xl">
+      <DialogContent className="sm:max-w-xl">
         <DialogHeader className="flex items-center justify-between">
           <DialogTitle>Nuevo Color</DialogTitle>
-          <DialogClose asChild>
-            <Button variant="ghost">Cerrar</Button>
-          </DialogClose>
         </DialogHeader>
 
         <Form
@@ -47,7 +48,8 @@ export default function CreateColorModal({
                 {/* Campo código HEX */}
                 <div className="space-y-2">
                   <Label htmlFor="codigo_hex">Código HEX</Label>
-                  <Input id="codigo_hex" name="codigo_hex" maxLength={10} placeholder="#FFFFFF" />
+                  <input id="codigo_hex" name="codigo_hex" value={colorValue} type="hide" readOnly />
+                  <HexColorPicker className="mt-3" color={colorValue} onChange={setColorValue} />
                   <InputError message={errors?.codigo_hex as string | undefined} />
                 </div>
               </div>

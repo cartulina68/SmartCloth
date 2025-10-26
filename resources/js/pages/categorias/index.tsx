@@ -25,11 +25,10 @@ export default function CategoriaIndex({ categorias }: Props) {
   const [deleting, setDeleting] = useState<Categoria | null>(null)
 
   function openCreate() {
-    setEditing(null)
     setCreateOpen(true)
   }
 
-  async function openEdit(id: number) {
+  function openEdit(id: number) {
     const categoria = categorias.find(cat => cat.id === id)
 
     if (!categoria) {

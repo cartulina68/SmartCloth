@@ -1,8 +1,12 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter, DialogClose } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
 import { Form } from '@inertiajs/react'
-import { route } from 'ziggy-js'
-import { ColorForm } from './color-form'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import InputError from '@/components/input-error'
+import ColorController from '@/actions/App/Http/Controllers/ColorController'
+import { HexColorPicker } from 'react-colorful'
+import { useEffect, useState } from 'react'
 
 type Color = {
   id?: number
@@ -21,20 +25,26 @@ export default function EditColorModal({
   color?: Color | null
   onSaved?: () => void
 }) {
+  console.log('Editing color:', color);
+  const [colorValue, setColorValue] = useState('');
+
+  useEffect(() => {
+    if (color?.codigo_hex) {
+      setColorValue(color.codigo_hex);
+    }
+  }, [color]);
+
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-2xl">
         <DialogHeader className="flex items-center justify-between">
           <DialogTitle>Editar Color</DialogTitle>
-          <DialogClose asChild>
-            <Button variant="ghost">Cerrar</Button>
-          </DialogClose>
         </DialogHeader>
 
         {color?.id && (
           <Form
-            action={route('colors.update', color.id)}
-            method="put"
+            {...ColorController.update.form(color.id)}
+            options={{ preserveScroll: true }}
             onSuccess={() => {
               onOpenChange(false)
               onSaved?.()
@@ -43,7 +53,28 @@ export default function EditColorModal({
           >
             {({ processing, errors }: { processing: boolean; errors?: Record<string, string | string[] | undefined> }) => (
               <>
-                <ColorForm colorData={color ?? undefined} errors={errors} />
+                <div className="space-y-4">
+                  {/* Campo: nombre */}
+                  <div className="space-y-2">
+                    <Label htmlFor="nombre">Nombre del color</Label>
+                    <Input
+                      id="nombre"
+                      name="nombre"
+                      defaultValue={color.nombre ?? ''}
+                      required
+                      maxLength={50}
+                    />
+                    <InputError message={errors?.nombre as string | undefined} />
+                  </div>
+
+                  {/* Campo: código HEX */}
+                  <div className="space-y-2">
+                    <Label htmlFor="codigo_hex">Código HEX</Label>
+                    <input id="codigo_hex" name="codigo_hex" value={colorValue} type='hide' readOnly />
+                    <HexColorPicker className="mt-3" color={colorValue} onChange={setColorValue} />
+                    <InputError message={errors?.codigo_hex as string | undefined} />
+                  </div>
+                </div>
 
                 <DialogFooter className="gap-2 mt-4">
                   <DialogClose asChild>
