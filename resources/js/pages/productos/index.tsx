@@ -1,11 +1,8 @@
-import CreateProductoModal from '@/components/productos/create-producto-modal';
-import EditProductoModal from '@/components/productos/edit-producto-modal';
+import ProductoController from '@/actions/App/Http/Controllers/ProductoController';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import AppLayout from '@/layouts/app-layout';
-import { Head } from '@inertiajs/react';
-import { useState } from 'react';
-import { route } from 'ziggy-js';
+import { Head, router } from '@inertiajs/react';
 
 type Producto = {
     id: number;
@@ -15,7 +12,7 @@ type Producto = {
     categoria_id: number;
     genero_id: number;
     categoria: { id: number; nombre: string };
-    genero: { id: number; genero: string };
+    genero: { id: number; nombre: string };
 };
 
 interface Props {
@@ -24,32 +21,7 @@ interface Props {
     generos: { id: number; genero: string }[];
 }
 
-export default function ProductoIndex({
-    productos,
-    categorias,
-    generos,
-}: Props) {
-    const [createOpen, setCreateOpen] = useState(false);
-    const [editOpen, setEditOpen] = useState(false);
-    const [editing, setEditing] = useState<Producto | null>(null);
-
-    function openCreate() {
-        setEditing(null);
-        setCreateOpen(true);
-    }
-
-    async function openEdit(id: number) {
-        try {
-            const url = route('productos.show', id);
-            const res = await fetch(url);
-            const data = await res.json();
-            setEditing(data);
-            setEditOpen(true);
-        } catch (e) {
-            console.error(e);
-        }
-    }
-
+export default function ProductoIndex({ productos }: Props) {
     return (
         <AppLayout>
             <Head title="Productos" />
@@ -57,7 +29,7 @@ export default function ProductoIndex({
             <div className="space-y-4">
                 <div className="flex items-center justify-between">
                     <h1 className="text-2xl font-semibold">Productos</h1>
-                    <Button onClick={openCreate}>Nuevo Producto</Button>
+                    <Button onClick={() => router.get(ProductoController.create.url())}>Nuevo Producto</Button>
                 </div>
 
                 <Card>
@@ -89,7 +61,7 @@ export default function ProductoIndex({
                                                 {producto.categoria?.nombre}
                                             </td>
                                             <td className="p-2">
-                                                {producto.genero?.genero}
+                                                {producto.genero?.nombre}
                                             </td>
                                             <td className="p-2">
                                                 {Number(
@@ -97,7 +69,7 @@ export default function ProductoIndex({
                                                 ).toFixed(2)}
                                             </td>
                                             <td className="space-x-2 p-2">
-                                                <Button
+                                                {/* <Button
                                                     size="sm"
                                                     variant="outline"
                                                     onClick={() =>
@@ -105,7 +77,7 @@ export default function ProductoIndex({
                                                     }
                                                 >
                                                     Editar
-                                                </Button>
+                                                </Button> */}
                                                 {/* <Button size="sm" variant="destructive" onClick={() => handleDelete(producto.id)}>Eliminar</Button> */}
                                             </td>
                                         </tr>
@@ -116,21 +88,6 @@ export default function ProductoIndex({
                     </CardContent>
                 </Card>
             </div>
-
-            <CreateProductoModal
-                open={createOpen}
-                onOpenChange={(open) => setCreateOpen(open)}
-                categorias={categorias}
-                generos={generos}
-            />
-
-            <EditProductoModal
-                open={editOpen}
-                onOpenChange={(open) => setEditOpen(open)}
-                producto={editing ?? undefined}
-                categorias={categorias}
-                generos={generos}
-            />
         </AppLayout>
     );
 }

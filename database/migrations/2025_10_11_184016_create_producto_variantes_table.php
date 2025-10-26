@@ -11,16 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('products_variantes', function (Blueprint $table) {
+        Schema::create('producto_variantes', function (Blueprint $table) {
             $table->id();
 
-            // 🔗 Relaciones
-            $table->foreignId('product_id')->constrained('products');
+            // Relaciones
+            $table->foreignId('producto_id')->constrained('productos');
             $table->foreignId('color_id')->nullable()->constrained('colores');
             $table->foreignId('talla_id')->nullable()->constrained('tallas');
             $table->foreignId('imagen_id')->nullable()->constrained('imagenes');
 
-            // 📦 Datos del inventario
+            // Datos del inventario
             $table->integer('stock')->default(0);
             $table->decimal('precio', 10, 2)->nullable();
 
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('products_variantes');
+        Schema::dropIfExists('producto_variantes');
     }
 };

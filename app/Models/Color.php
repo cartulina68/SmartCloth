@@ -9,9 +9,8 @@ class Color extends Model
 {
     use HasFactory;
 
-    protected $table = 'colores'; // 👈 le decimos que use esta tabla
+    protected $table = 'colores';
 
-        // 👇 Debe coincidir con los nombres de la migración (antes era color y hex)
     protected $fillable = ['nombre', 'codigo_hex'];
 
     public function variantes()

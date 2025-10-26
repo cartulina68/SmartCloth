@@ -9,7 +9,7 @@ class Producto extends Model
 {
     use HasFactory;
 
-    protected $table = 'products'; // <- Tabla
+    protected $table = 'productos';
 
     protected $fillable = ['nombre', 'descripcion', 'precio', 'categoria_id', 'genero_id'];
 
@@ -25,7 +25,7 @@ class Producto extends Model
 
     public function variantes()
     {
-        return $this->hasMany(ProductoVariante::class, 'product_id');
+        return $this->hasMany(ProductoVariante::class, 'producto_id');
     }
 
     public function comentarios()

@@ -9,10 +9,15 @@ class Imagen extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['path'];
+    protected $table = 'imagenes';
+
+    protected $fillable = ['path', 'descripcion'];
 
     public function variantes()
     {
-        return $this->hasMany(ProductoVariante::class, 'imagen_id');
+        return $this->belongsToMany(ProductoVariante::class, 'variante_imagenes', 'imagen_id', 'variante_id')
+            ->withPivot('orden')
+            ->orderBy('orden')
+            ->withTimestamps();
     }
 }

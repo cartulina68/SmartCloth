@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('generos', function (Blueprint $table) {
-            $table->id();
-            $table->string('nombre', 50);
+        Schema::create('variante_imagenes', function (Blueprint $table) {
+            $table->foreignId('variante_id')->constrained('producto_variantes');
+            $table->foreignId('imagen_id')->constrained('imagenes');
+            $table->integer('orden')->default(0);
+            $table->primary(['variante_id', 'imagen_id']);
             $table->timestamps();
         });
     }
@@ -23,7 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('generos');
+        Schema::dropIfExists('variante_imagenes');
     }
 };
-

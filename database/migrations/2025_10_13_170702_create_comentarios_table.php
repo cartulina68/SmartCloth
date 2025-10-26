@@ -10,8 +10,8 @@ return new class extends Migration
     {
         Schema::create('comentarios', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('usuario_id')->constrained('users')->onDelete('cascade');
-            $table->foreignId('producto_id')->constrained('products')->onDelete('cascade');
+            $table->foreignId('usuario_id')->constrained('users');
+            $table->foreignId('producto_id')->constrained('productos');
             $table->text('contenido');
             $table->timestamps();
         });

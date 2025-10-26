@@ -9,7 +9,9 @@ class Genero extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['genero'];
+    protected $table = 'generos';
+
+    protected $fillable = ['nombre'];
 
     public function productos()
     {

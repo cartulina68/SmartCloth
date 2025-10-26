@@ -9,11 +9,19 @@ class ProductoVariante extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['product_id', 'color_id', 'talla_id', 'imagen_id', 'stock', 'precio'];
+    protected $table = 'producto_variantes';
+
+    protected $fillable = [
+        'producto_id',
+        'color_id',
+        'talla_id',
+        'stock',
+        'precio'
+    ];
 
     public function producto()
     {
-        return $this->belongsTo(Producto::class, 'product_id');
+        return $this->belongsTo(Producto::class, 'producto_id');
     }
 
     public function color()
@@ -26,8 +34,11 @@ class ProductoVariante extends Model
         return $this->belongsTo(Talla::class, 'talla_id');
     }
 
-    public function imagen()
+    public function imagenes()
     {
-        return $this->belongsTo(Imagen::class, 'imagen_id');
+        return $this->belongsToMany(Imagen::class, 'variante_imagenes', 'variante_id', 'imagen_id')
+            ->withPivot('orden')
+            ->orderBy('orden')
+            ->withTimestamps();
     }
 }

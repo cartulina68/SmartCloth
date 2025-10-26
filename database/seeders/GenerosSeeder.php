@@ -10,8 +10,8 @@ class GenerosSeeder extends Seeder
     public function run(): void
     {
         DB::table('generos')->insert([
-            ['genero' => 'Masculino', 'created_at' => now(), 'updated_at' => now()],
-            ['genero' => 'Femenino', 'created_at' => now(), 'updated_at' => now()]
+            ['nombre' => 'Masculino', 'created_at' => now(), 'updated_at' => now()],
+            ['nombre' => 'Femenino', 'created_at' => now(), 'updated_at' => now()]
         ]);
     }
 }
