@@ -1,8 +1,18 @@
 import ProductoController from '@/actions/App/Http/Controllers/ProductoController';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+    Table,
+    TableBody,
+    TableCell,
+    TableHead,
+    TableHeader,
+    TableRow,
+} from '@/components/ui/table';
 import AppLayout from '@/layouts/app-layout';
 import { Head, router } from '@inertiajs/react';
+import DeleteProductoModal from './components/delete-producto-modal';
+import { useState } from 'react';
 
 type Producto = {
     id: number;
@@ -22,6 +32,25 @@ interface Props {
 }
 
 export default function ProductoIndex({ productos }: Props) {
+    const [deleteOpen, setDeleteOpen] = useState(false);
+    const [deleting, setDeleting] = useState<Producto | null>(null);
+
+    function openDelete(id: number) {
+        const producto = productos.find((producto) => producto.id === id);
+
+        if (!producto) {
+            console.error('Categoría no encontrada');
+            return;
+        }
+
+        setDeleting(producto);
+        setDeleteOpen(true);
+    }
+
+    const handleEdit = (productoId: number) => {
+        router.get(ProductoController.show.url({ producto: productoId }));
+    };
+
     return (
         <AppLayout>
             <Head title="Productos" />
@@ -38,56 +67,61 @@ export default function ProductoIndex({ productos }: Props) {
                     </CardHeader>
                     <CardContent>
                         <div className="overflow-x-auto">
-                            <table className="w-full text-sm">
-                                <thead>
-                                    <tr className="text-left">
-                                        <th className="p-2">Nombre</th>
-                                        <th className="p-2">Categoría</th>
-                                        <th className="p-2">Género</th>
-                                        <th className="p-2">Precio</th>
-                                        <th className="p-2">Acciones</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
+                            <Table>
+                                <TableHeader>
+                                    <TableRow>
+                                        <TableHead>Nombre</TableHead>
+                                        <TableHead>Categoría</TableHead>
+                                        <TableHead>Género</TableHead>
+                                        <TableHead>Precio</TableHead>
+                                        <TableHead>Acciones</TableHead>
+                                    </TableRow>
+                                </TableHeader>
+                                <TableBody>
                                     {productos.map((producto) => (
-                                        <tr
-                                            key={producto.id}
-                                            className="border-t"
-                                        >
-                                            <td className="p-2">
+                                        <TableRow key={producto.id}>
+                                            <TableCell>
                                                 {producto.nombre}
-                                            </td>
-                                            <td className="p-2">
+                                            </TableCell>
+                                            <TableCell>
                                                 {producto.categoria?.nombre}
-                                            </td>
-                                            <td className="p-2">
+                                            </TableCell>
+                                            <TableCell>
                                                 {producto.genero?.nombre}
-                                            </td>
-                                            <td className="p-2">
-                                                {Number(
-                                                    producto.precio,
-                                                ).toFixed(2)}
-                                            </td>
-                                            <td className="space-x-2 p-2">
-                                                {/* <Button
+                                            </TableCell>
+                                            <TableCell>
+                                                {Number(producto.precio).toFixed(2)}
+                                            </TableCell>
+                                            <TableCell className="space-x-2">
+                                                <Button
                                                     size="sm"
                                                     variant="outline"
-                                                    onClick={() =>
-                                                        openEdit(producto.id)
-                                                    }
+                                                    onClick={() => handleEdit(producto.id)}
                                                 >
                                                     Editar
-                                                </Button> */}
-                                                {/* <Button size="sm" variant="destructive" onClick={() => handleDelete(producto.id)}>Eliminar</Button> */}
-                                            </td>
-                                        </tr>
+                                                </Button>
+                                                <Button
+                                                    size="sm"
+                                                    variant="destructive"
+                                                    onClick={() => openDelete(producto.id)}
+                                                >
+                                                    Eliminar
+                                                </Button>
+                                            </TableCell>
+                                        </TableRow>
                                     ))}
-                                </tbody>
-                            </table>
+                                </TableBody>
+                            </Table>
                         </div>
                     </CardContent>
                 </Card>
             </div>
+
+            <DeleteProductoModal
+                open={deleteOpen}
+                onOpenChange={(open) => setDeleteOpen(open)}
+                producto={deleting ?? undefined}
+            />
         </AppLayout>
     );
 }

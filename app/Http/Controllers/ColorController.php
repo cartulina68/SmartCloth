@@ -40,7 +40,7 @@ class ColorController extends Controller
 
         $color->update($validated);
 
-        return response()->json($color);
+        return redirect()->intended(route('colores.index', absolute: false));
     }
 
     public function destroy(Color $color)

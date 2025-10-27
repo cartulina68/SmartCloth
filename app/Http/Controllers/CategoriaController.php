@@ -17,9 +17,11 @@ class CategoriaController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'nombre' => 'required|string|max:100',
+            'nombre' => 'required|string|unique:categorias,nombre|max:100',
             'descripcion' => 'nullable|string',
         ]);
+
+        Categorias::create($validated);
 
         return redirect()->intended(route('categorias.index', absolute: false));
     }
